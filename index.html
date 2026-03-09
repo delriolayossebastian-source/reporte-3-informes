@@ -23,10 +23,29 @@
       --p-gray:#C1C5C8;
       --p-lilac:#E5E1E6;
 
+      /* Resaltado total */
+      --total-red:#C62828;
+      --total-red-soft:#FDECEC;
+
       /* Semáforo criticidad (suave) */
       --alto-bg:#FCE8E3; --alto-tx:#8A1F0D;
       --med-bg:#FFF4E5;  --med-tx:#7A3E00;
       --bajo-bg:#EAF6F3; --bajo-tx:#0B4B3F;
+
+      --fs-base: 16px;
+      --fs-small: 14px;
+      --fs-note: 15px;
+      --fs-lead: 16px;
+      --fs-title: 26px;
+      --fs-section: 18px;
+      --fs-kpi: 44px;
+      --fs-kpi-label: 14px;
+      --fs-table: 14px;
+      --fs-legend: 14px;
+
+      --svg-text: 15px;
+      --svg-text-muted: 14px;
+      --svg-text-bold: 14px;
     }
 
     *{box-sizing:border-box}
@@ -35,6 +54,9 @@
       font-family: Arial, sans-serif;
       background: var(--bg);
       color: var(--text);
+      font-size: var(--fs-base);
+      position: relative;
+      min-height: 100vh;
     }
 
     .page{
@@ -57,16 +79,14 @@
 
     .h-title{
       margin:0;
-      font-size:20px;
+      font-size: var(--fs-title);
       font-weight:800;
       color:var(--title);
     }
 
-  
-
     .section{ margin-top:14px; }
     .section-title{
-      font-size:14px;
+      font-size: var(--fs-section);
       font-weight:800;
       color:var(--title);
       margin: 0 0 10px 0;
@@ -76,7 +96,7 @@
       background:#fff;
       border:1px solid var(--border);
       border-radius:14px;
-      padding:12px 14px;
+      padding:14px 16px;
       box-shadow: var(--shadow);
     }
 
@@ -92,21 +112,44 @@
     }
 
     .kpi{
-      font-size:34px;
+      font-size: var(--fs-kpi);
       font-weight:800;
       color:var(--title);
       line-height:1;
       margin-top:8px;
     }
     .kpi-label{
-      font-size:12px;
+      font-size: var(--fs-kpi-label);
       color:var(--muted);
-      margin-top:4px;
+      margin-top:6px;
+    }
+
+    .kpi-total{
+      color: var(--total-red) !important;
+      font-size: 52px;
+    }
+
+    .total-box{
+      background: var(--total-red-soft);
+      border: 2px solid var(--total-red);
+      text-align: center;
+    }
+
+    .total-text{
+      color: var(--total-red);
+      font-weight: 800;
+      font-size: 20px;
+    }
+
+    .total-inline{
+      color: var(--total-red);
+      font-weight: 800;
+      font-size: 18px;
     }
 
     .muted{color:var(--muted)}
-    .note{font-size:12px; color:var(--text); line-height:1.5;}
-    .lead{font-size:13px; line-height:1.55;}
+    .note{font-size: var(--fs-note); color:var(--text); line-height:1.7;}
+    .lead{font-size: var(--fs-lead); line-height:1.7;}
 
     .bar-wrap{
       height:12px;
@@ -121,25 +164,37 @@
     .bar-orange{background:var(--p-orange)}
     .bar-gray{background:var(--p-gray)}
 
-    .legend{display:flex; gap:14px; flex-wrap:wrap; align-items:center; font-size:12px; color:var(--muted); margin-top:10px;}
-    .dot{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid rgba(0,0,0,.08); margin-right:6px;}
+    .legend{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      align-items:center;
+      font-size: var(--fs-legend);
+      color:var(--muted);
+      margin-top:10px;
+      line-height:1.6;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:3px;display:inline-block;
+      border:1px solid rgba(0,0,0,.08); margin-right:6px;
+    }
 
     table{
       width:100%;
       border-collapse:collapse;
-      font-size:12px;
+      font-size: var(--fs-table);
       margin-top:10px;
     }
     thead th{
       text-align:left;
-      padding:8px;
+      padding:10px;
       border-bottom:1px solid var(--border);
       background:var(--surface);
       color:var(--title);
       font-weight:800;
     }
     tbody td{
-      padding:8px;
+      padding:10px;
       border-bottom:1px solid #f1f5f9;
     }
     tbody tr:last-child td{border-bottom:0;}
@@ -148,10 +203,10 @@
 
     .pill{
       display:inline-block;
-      padding:2px 8px;
+      padding:4px 10px;
       border-radius:999px;
       font-weight:800;
-      font-size:11px;
+      font-size:13px;
       margin-left:6px;
       border:1px solid rgba(0,0,0,.06);
     }
@@ -163,13 +218,12 @@
     .cell-med{ background:var(--med-bg); color:var(--med-tx); font-weight:800; }
     .cell-bajo{ background:var(--bajo-bg); color:var(--bajo-tx); font-weight:800; }
 
-    /* Helpers */
     .row{display:flex; justify-content:space-between; gap:12px; align-items:flex-end;}
-    .small{font-size:12px;}
+    .small{font-size: var(--fs-small);}
     .tight{margin:0;}
-    .panel-sub{font-size:12px; color:var(--muted); margin-top:2px; line-height:1.5;}
+    .panel-sub{font-size: var(--fs-small); color:var(--muted); margin-top:4px; line-height:1.7;}
     .badge{
-      font-size:12px;
+      font-size: var(--fs-small);
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--border);
@@ -178,553 +232,717 @@
     }
     .wrap{flex-wrap:wrap}
 
-    /* Fondo con marca de agua (sin afectar el contenido) */
-body{
-  position: relative;
-  min-height: 100vh;
-}
+    body::before{
+      content:"";
+      position: fixed;
+      inset: 0;
+      background-image: url("TABLERO-1920x1080-MARCA-DE-AGUA-BLANCO.jpg");
+      background-size: cover;
+      background-position: center 30%;
+      background-repeat: no-repeat;
+      opacity: 0.90;
+      z-index: -1;
+    }
 
-body::before{
-  content:"";
-  position: fixed;
-  inset: 0;
-  background-image: url("TABLERO-1920x1080-MARCA-DE-AGUA-BLANCO.jpg");
-  background-size: cover;        /* llena la pantalla */
-  background-position: center 30%;   /* centrada */
-  background-repeat: no-repeat;
-  opacity: 0.90;                 /* ajusta: 0.10 a 0.25 suele quedar bien */
-  z-index: -1;                   /* queda detrás de todo */
-}
+    .card, .page-header{
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(2px);
+    }
 
-/* Para que las tarjetas sigan viéndose limpias encima del fondo */
-.card, .page-header{
-  background: rgba(255,255,255,0.92);
-  backdrop-filter: blur(2px);    /* opcional, se ve elegante */
-}
+    svg text, svg tspan{
+      font-size: var(--svg-text) !important;
+    }
+
+    svg text[fill="#6b7280"], svg tspan[fill="#6b7280"]{
+      font-size: var(--svg-text-muted) !important;
+    }
+
+    svg text[font-weight="800"]{
+      font-size: var(--svg-text-bold) !important;
+    }
+
+    svg text{ dominant-baseline: middle; }
+    svg rect[height="18"]{ height: 22px !important; }
+    ul{ line-height: 1.7; }
   </style>
 </head>
-
 
 <body>
   <div class="page">
 
-    <!-- HEADER -->
     <div class="page-header">
       <div>
-        <h1 class="h-title">Reporte gestión de tickets· Comparación de los 3 Informes</h1>
+        <h1 class="h-title">Reporte gestión de tickets · Comparación de los 3 informes</h1>
       </div>
     </div>
 
-    <!-- =========================================================
-         PANEL 1: Gestión de tickets (3 informes)
-         ========================================================= -->
+    <!-- PANEL 1 -->
     <section class="section">
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">1) Gestión de tickets | Comparación de tres los informes</div>
-            <div class="panel-sub">
-              Entre el Informe 1 (3.856) y el Informe 3 (6.089) el total aumentó en: <b>2.233</b> (<b>57,9%</b>).<br/>
-              Entre el Informe 2 (5.819) y el Informe 3 (6.089) aumentó en: <b>270</b> (<b>4,6%</b>), explicado principalmente por <b>Centro de control</b> (+162).<br/>
-              El mayor cambio se presento en: <b>Centro de control</b> (1.317). Mayor cambio relativo: <b>Servicio</b> (287,2%).<br/>
-              En el Informe 3: <b>72</b> alertas con causa asociada (1,18% del total).
-            </div>
+            <div class="section-title tight">1) Gestión de tickets | Comparación de los 3 informes</div>
           </div>
         </div>
 
-        <!-- Cards por informe -->
-        <div class="grid-3" style="margin-top:12px;">
-          <!-- I1 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row">
-              <div>
-                <div class="small muted"><b>Informe 1</b></div>
-                <div class="kpi">3.856</div>
-                <div class="kpi-label">Total de alertas</div>
-              </div>
-              <div class="small muted" style="text-align:right;">
-                Alertas gestionadas: <b>100%</b><br/>
-                Cobertura: 37 cámaras, 21 salas
-              </div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Seguridad: <b>1.175</b><br/>
-              Centro de control: <b>2.564</b><br/>
-              Servicio: <b>117</b>
-            </div>
-
-            <div class="small muted" style="margin-top:10px;">Composición del total</div>
-            <div class="bar-wrap" style="width:280px; margin-top:6px;">
-              <div class="bar-navy" style="width:85px;"></div>
-              <div class="bar-teal" style="width:186px;"></div>
-              <div class="bar-orange" style="width:9px;"></div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Aforo Seguridad: <b>85%</b><br/>
-              Aforo Centro de control: <b>100%</b><br/>
-              Aforo Servicio: <b>100%</b>
-            </div>
-          </div>
-
-          <!-- I2 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row">
-              <div>
-                <div class="small muted"><b>Informe 2</b></div>
-                <div class="kpi">5.819</div>
-                <div class="kpi-label">Total de alertas</div>
-              </div>
-              <div class="small muted" style="text-align:right;">
-                Alertas gestionadas: <b>100%</b><br/>
-                Cobertura: 37 cámaras, 20 salas
-              </div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Seguridad: <b>1.668</b><br/>
-              Centro de control: <b>3.719</b><br/>
-              Servicio: <b>432</b>
-            </div>
-
-            <div class="small muted" style="margin-top:10px;">Composición del total</div>
-            <div class="bar-wrap" style="width:280px; margin-top:6px;">
-              <div class="bar-navy" style="width:80px;"></div>
-              <div class="bar-teal" style="width:178px;"></div>
-              <div class="bar-orange" style="width:22px;"></div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Aforo Seguridad: <b>85%</b><br/>
-              Aforo Centro de control: <b>100%</b><br/>
-              Aforo Servicio: <b>100%</b>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Cambio vs Informe 1: <b>Aumentó 1.963 (50,9%)</b>
-            </div>
-          </div>
-
-          <!-- I3 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row">
-              <div>
-                <div class="small muted"><b>Informe 3</b></div>
-                <div class="kpi">6.089</div>
-                <div class="kpi-label">Total de alertas</div>
-              </div>
-              <div class="small muted" style="text-align:right;">
-                Alertas gestionadas: <b>100%</b><br/>
-                Cobertura: 37 cámaras, 20 salas
-              </div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Seguridad: <b>1.755</b><br/>
-              Centro de control: <b>3.881</b><br/>
-              Servicio: <b>453</b>
-            </div>
-
-            <div class="small muted" style="margin-top:10px;">Composición del total</div>
-            <div class="bar-wrap" style="width:280px; margin-top:6px;">
-              <div class="bar-navy" style="width:80px;"></div>
-              <div class="bar-teal" style="width:178px;"></div>
-              <div class="bar-orange" style="width:22px;"></div>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Aforo Seguridad: <b>85%</b><br/>
-              Aforo Centro de control: <b>100%</b><br/>
-              Aforo Servicio: <b>100%</b>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Alertas con causa asociada: <b>72</b> (1,18%)<br/>
-              Cambio vs Informe 2: <b>Aumentó 270 (4,6%)</b>
-            </div>
-          </div>
-        </div>
-
-        <!-- Gráficas -->
-        <div class="grid-2" style="margin-top:12px;">
-          <!-- Tendencia -->
-          <div class="card" style="box-shadow:none;">
-            <div class="section-title tight">Tendencia (total y áreas)</div>
-            <div class="panel-sub">Total + Seguridad + Centro de control + Servicio</div>
-
-            <svg width="720" height="235" viewBox="0 0 720 235" style="margin-top:10px;">
-              <rect x="0" y="0" width="720" height="235" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
-
-              <line x1="90" y1="25" x2="90" y2="185" stroke="#e5e7eb"></line>
-              <line x1="260" y1="25" x2="260" y2="185" stroke="#e5e7eb"></line>
-              <line x1="430" y1="25" x2="430" y2="185" stroke="#e5e7eb"></line>
-
-              <!-- Líneas -->
-              <polyline points="90,140.2 260,128.6 430,126.6" fill="none" stroke="#003057" stroke-width="2"></polyline>
-              <polyline points="90,109.8 260,82.8 430,79.0" fill="none" stroke="#007A8A" stroke-width="2"></polyline>
-              <polyline points="90,160.0 260,148.1 430,147.6" fill="none" stroke="#D64123" stroke-width="2" stroke-dasharray="5 4"></polyline>
-              <polyline points="90,77.3 260,31.3 430,25.0" fill="none" stroke="#003057" stroke-width="3"></polyline>
-
-              <!-- Puntos total -->
-              <circle cx="90" cy="77.3" r="4.5" fill="#003057"></circle>
-              <circle cx="260" cy="31.3" r="4.5" fill="#003057"></circle>
-              <circle cx="430" cy="25.0" r="4.5" fill="#003057"></circle>
-
-              <!-- Labels -->
-              <text x="90" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 1</text>
-              <text x="260" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 2</text>
-              <text x="430" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 3</text>
-
-              <text x="90" y="18" font-size="12" fill="#6b7280" text-anchor="middle">3.856</text>
-              <text x="260" y="18" font-size="12" fill="#6b7280" text-anchor="middle">5.819</text>
-              <text x="430" y="18" font-size="12" fill="#6b7280" text-anchor="middle">6.089</text>
-            </svg>
-
-            <div class="legend">
-              <span><span class="dot" style="background:var(--p-navy);"></span>Total</span>
-              <span><span class="dot" style="background:var(--p-navy);"></span>Seguridad</span>
-              <span><span class="dot" style="background:var(--p-teal);"></span>Centro</span>
-              <span><span class="dot" style="background:var(--p-orange);"></span>Servicio</span>
-            </div>
-
-            <div class="note" style="margin-top:10px;">
-              Cambio 1→2: <b>Aumentó 1.963 (50,9%)</b><br/>
-              Cambio 2→3: <b>Aumentó 270 (4,6%)</b>
-            </div>
-          </div>
-
-          <!-- Cambios -->
-          <div class="card" style="box-shadow:none;">
-            <div class="section-title tight">Cambios del total entre periodos</div>
-            
-
-            <div class="small" style="font-weight:800; color:var(--title);">Cambio total (Informe 1 → Informe 2)</div>
-            <div class="bar-wrap" style="width:260px; margin-top:6px;">
-              <div class="bar-gray" style="width:260px;"></div>
-            </div>
-            <div class="note" style="margin-top:6px;">Aumentó <b>1.963</b> (50,9%).</div>
-
-            <div class="small" style="font-weight:800; color:var(--title); margin-top:14px;">Cambio total (Informe 2 → Informe 3)</div>
-            <div class="bar-wrap" style="width:260px; margin-top:6px;">
-              <div class="bar-navy" style="width:83px;"></div>
-              <div class="bar-teal" style="width:156px;"></div>
-              <div class="bar-orange" style="width:21px;"></div>
-            </div>
-            <div class="note" style="margin-top:6px;">Aumentó <b>270</b> (4,6%).</div>
-
-            <div class="note" style="margin-top:10px;">
-              Desglose 2→3:<br/>
-              Seguridad: <b>+87</b> · Centro de control: <b>+162</b> · Servicio: <b>+21</b>
-            </div>
-          </div>
-        </div>
-
-        <!-- Tabla resumen -->
-        <div class="card" style="margin-top:12px; box-shadow:none;">
-          <div class="section-title tight">Tendencia de cambios</div>
-          <table>
-            <thead>
-              <tr>
-                <th>Indicador</th>
-                <th class="num">Informe 1</th>
-                <th class="num">Informe 2</th>
-                <th class="num">Informe 3</th>
-                <th>Cambio 1→2</th>
-                <th>Cambio 2→3</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Total de alertas</td>
-                <td class="num">3.856</td>
-                <td class="num">5.819</td>
-                <td class="num">6.089</td>
-                <td><b>+1.963</b> (50,9%)</td>
-                <td><b>+270</b> (4,6%)</td>
-              </tr>
-              <tr>
-                <td>Seguridad</td>
-                <td class="num">1.175</td>
-                <td class="num">1.668</td>
-                <td class="num">1.755</td>
-                <td>+493</td>
-                <td>+87</td>
-              </tr>
-              <tr>
-                <td>Centro de control</td>
-                <td class="num">2.564</td>
-                <td class="num">3.719</td>
-                <td class="num">3.881</td>
-                <td>+1.155</td>
-                <td>+162</td>
-              </tr>
-              <tr>
-                <td>Servicio</td>
-                <td class="num">117</td>
-                <td class="num">432</td>
-                <td class="num">453</td>
-                <td>+315</td>
-                <td>+21</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-      </div>
-    </section>
-
-    <!-- =========================================================
-         PANEL 2: Columnas por jornada (3 informes)
-         ========================================================= -->
-    <section class="section">
-      <div class="card">
-        <div class="row wrap">
+        <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr;">
           <div>
-            <div class="section-title tight">2) Comparación por jornada </div>
-            <div class="panel-sub">
-              Informe 1 (3.856) es estimado por falta de lámina de jornada. Informe 2 (5.819) y 3 (6.089) son reales.<br/>
-              Del Informe 2 al 3: mayor aumento en <b>Tarde</b> (+333) y mayor descenso en <b>Mañana</b> (-103).
+            <div class="card" style="box-shadow:none;">
+              <div class="section-title tight">Tendencia (total y aforos)</div>
+
+              <div class="legend" style="margin-top:6px;">
+                <span><span class="dot" style="background:#111827;"></span>Total</span>
+                <span><span class="dot" style="background:var(--p-navy);"></span>Aforo sala 85%</span>
+                <span><span class="dot" style="background:var(--p-teal);"></span>Aforo cámaras 100%</span>
+                <span><span class="dot" style="background:var(--p-orange);"></span>Aforo sala 100%</span>
+              </div>
+
+              <svg width="980" height="360" viewBox="0 0 980 360" style="margin-top:10px; max-width:100%;">
+                <rect x="0" y="0" width="980" height="360" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
+
+                <line x1="110" y1="55"  x2="950" y2="55"  stroke="#eef2f7"></line>
+                <line x1="110" y1="110" x2="950" y2="110" stroke="#eef2f7"></line>
+                <line x1="110" y1="165" x2="950" y2="165" stroke="#eef2f7"></line>
+                <line x1="110" y1="220" x2="950" y2="220" stroke="#eef2f7"></line>
+                <line x1="110" y1="275" x2="950" y2="275" stroke="#eef2f7"></line>
+
+                <line x1="220" y1="35" x2="220" y2="275" stroke="#e5e7eb"></line>
+                <line x1="520" y1="35" x2="520" y2="275" stroke="#e5e7eb"></line>
+                <line x1="820" y1="35" x2="820" y2="275" stroke="#e5e7eb"></line>
+
+                <text x="102" y="59"  font-size="11" fill="#6b7280" text-anchor="end">6.100</text>
+                <text x="102" y="114" font-size="11" fill="#6b7280" text-anchor="end">4.600</text>
+                <text x="102" y="169" font-size="11" fill="#6b7280" text-anchor="end">3.050</text>
+                <text x="102" y="224" font-size="11" fill="#6b7280" text-anchor="end">1.525</text>
+                <text x="102" y="279" font-size="11" fill="#6b7280" text-anchor="end">0</text>
+
+                <polyline points="220,120.0 520,58.0 820,50.0" fill="none" stroke="#111827" stroke-width="5"></polyline>
+                <circle cx="220" cy="120.0" r="6" fill="#111827"></circle>
+                <circle cx="520" cy="58.0" r="6" fill="#111827"></circle>
+                <circle cx="820" cy="50.0" r="6" fill="#111827"></circle>
+
+                <polyline points="220,200.0 520,185.0 820,182.0" fill="none" stroke="var(--p-navy)" stroke-width="4.5"></polyline>
+                <circle cx="220" cy="200.0" r="5.5" fill="var(--p-navy)"></circle>
+                <circle cx="520" cy="185.0" r="5.5" fill="var(--p-navy)"></circle>
+                <circle cx="820" cy="182.0" r="5.5" fill="var(--p-navy)"></circle>
+
+                <polyline points="220,165.0 520,125.0 820,121.0" fill="none" stroke="var(--p-teal)" stroke-width="4.5"></polyline>
+                <circle cx="220" cy="165.0" r="5.5" fill="var(--p-teal)"></circle>
+                <circle cx="520" cy="125.0" r="5.5" fill="var(--p-teal)"></circle>
+                <circle cx="820" cy="121.0" r="5.5" fill="var(--p-teal)"></circle>
+
+                <polyline points="220,225.0 520,210.0 820,209.0" fill="none" stroke="var(--p-orange)" stroke-width="4.5" stroke-dasharray="6 5"></polyline>
+                <circle cx="220" cy="225.0" r="5.5" fill="var(--p-orange)"></circle>
+                <circle cx="520" cy="210.0" r="5.5" fill="var(--p-orange)"></circle>
+                <circle cx="820" cy="209.0" r="5.5" fill="var(--p-orange)"></circle>
+
+                <rect x="196" y="90" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="103" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">3.856</text>
+                <rect x="496" y="28" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="41" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">5.819</text>
+                <rect x="796" y="20" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="33" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">6.089</text>
+
+                <rect x="196" y="140" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="223" y="153" font-size="11" fill="#0f172a" text-anchor="middle">2.564</text>
+                <rect x="496" y="100" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="523" y="113" font-size="11" fill="#0f172a" text-anchor="middle">3.719</text>
+                <rect x="796" y="96" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="823" y="109" font-size="11" fill="#0f172a" text-anchor="middle">3.881</text>
+
+                <rect x="196" y="205" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="223" y="218" font-size="11" fill="#0f172a" text-anchor="middle">1.175</text>
+                <rect x="496" y="190" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="523" y="203" font-size="11" fill="#0f172a" text-anchor="middle">1.668</text>
+                <rect x="796" y="187" width="54" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="823" y="200" font-size="11" fill="#0f172a" text-anchor="middle">1.755</text>
+
+                <rect x="200" y="238" width="40" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="251" font-size="11" fill="#0f172a" text-anchor="middle">117</text>
+                <rect x="496" y="222" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="235" font-size="11" fill="#0f172a" text-anchor="middle">432</text>
+                <rect x="796" y="221" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="234" font-size="11" fill="#0f172a" text-anchor="middle">453</text>
+
+                <text x="220" y="330" font-size="12" fill="#6b7280" text-anchor="middle">14 abr – 30 jun</text>
+                <text x="520" y="330" font-size="12" fill="#6b7280" text-anchor="middle">01 jul – 30 sep</text>
+                <text x="820" y="330" font-size="12" fill="#6b7280" text-anchor="middle">01 oct – 31 dic</text>
+              </svg>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="section-title tight">Conclusiones</div>
+              <div class="note" style="margin-top:8px;">
+                <b>Aumento total (14 abr–30 jun → 01 oct–31 dic):</b> +2.233 (<b>57,9%</b>).<br/>
+                <b>Último cambio (01 jul–30 sep → 01 oct–31 dic):</b> +270 (<b>4,6%</b>).<br/>
+                <b>Principal responsable del aumento 01 jul–30 sep → 01 oct–31 dic:</b> Aforo cámaras 100% (+162).<br/>
+                <b>Alertas con causa asociada (01 oct–31 dic):</b> 72 (1,18%).
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="section-title tight">Resumen numérico</div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>Indicador</th>
+                    <th class="num">14 abr–30 jun</th>
+                    <th class="num">01 jul–30 sep</th>
+                    <th class="num">01 oct–31 dic</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Total</td>
+                    <td class="num">3.856</td>
+                    <td class="num">5.819</td>
+                    <td class="num">6.089</td>
+                  </tr>
+                  <tr>
+                    <td>Aforo sala 85%</td>
+                    <td class="num">1.175</td>
+                    <td class="num">1.668</td>
+                    <td class="num">1.755</td>
+                  </tr>
+                  <tr>
+                    <td>Aforo cámaras 100%</td>
+                    <td class="num">2.564</td>
+                    <td class="num">3.719</td>
+                    <td class="num">3.881</td>
+                  </tr>
+                  <tr>
+                    <td>Aforo sala 100%</td>
+                    <td class="num">117</td>
+                    <td class="num">432</td>
+                    <td class="num">453</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
           </div>
-          <div class="chiprow">
-            <div class="chip">Mayor aumento: <b>Tarde</b> (+333)</div>
-            <div class="chip">Mayor descenso: <b>Mañana</b> (-103)</div>
-          </div>
-        </div>
 
-        <div class="grid-4" style="margin-top:12px;">
-          <!-- Tarde -->
-          <div class="card" style="box-shadow:none;">
-            <div class="small" style="font-weight:800; color:var(--title);">Tarde</div>
-            <div style="height:160px; display:flex; align-items:flex-end; gap:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface); margin-top:8px;">
-              <div style="width:34px; height:97px; background:var(--p-gray); border-radius:10px;"></div>
-              <div style="width:34px; height:141px; background:var(--p-teal); border-radius:10px;"></div>
-              <div style="width:34px; height:160px; background:var(--p-navy); border-radius:10px;"></div>
-            </div>
-            <div class="note" style="margin-top:10px;">
-              I1: <b>1.742</b><br/>
-              I2: <b>2.527</b><br/>
-              I3: <b>2.860</b><br/>
-              Cambio 2→3: <b> 333</b>
-            </div>
-          </div>
-
-          <!-- Mañana -->
-          <div class="card" style="box-shadow:none;">
-            <div class="small" style="font-weight:800; color:var(--title);">Mañana</div>
-            <div style="height:160px; display:flex; align-items:flex-end; gap:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface); margin-top:8px;">
-              <div style="width:34px; height:73px; background:var(--p-gray); border-radius:10px;"></div>
-              <div style="width:34px; height:116px; background:var(--p-teal); border-radius:10px;"></div>
-              <div style="width:34px; height:110px; background:var(--p-navy); border-radius:10px;"></div>
-            </div>
-            <div class="note" style="margin-top:10px;">
-              I1: <b>1.312</b><br/>
-              I2: <b>2.075</b><br/>
-              I3: <b>1.972</b><br/>
-              Cambio 2→3: <b>-103</b>
-            </div>
-          </div>
-
-          <!-- Noche -->
-          <div class="card" style="box-shadow:none;">
-            <div class="small" style="font-weight:800; color:var(--title);">Noche</div>
-            <div style="height:160px; display:flex; align-items:flex-end; gap:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface); margin-top:8px;">
-              <div style="width:34px; height:41px; background:var(--p-gray); border-radius:10px;"></div>
-              <div style="width:34px; height:63px; background:var(--p-teal); border-radius:10px;"></div>
-              <div style="width:34px; height:64px; background:var(--p-navy); border-radius:10px;"></div>
-            </div>
-            <div class="note" style="margin-top:10px;">
-              I1: <b>744</b><br/>
-              I2: <b>1.139</b><br/>
-              I3: <b>1.157</b><br/>
-              Cambio 2→3: <b>18</b>
-            </div>
-          </div>
-
-          <!-- Madrugada -->
-          <div class="card" style="box-shadow:none;">
-            <div class="small" style="font-weight:800; color:var(--title);">Madrugada</div>
-            <div style="height:160px; display:flex; align-items:flex-end; gap:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface); margin-top:8px;">
-              <div style="width:34px; height:3px; background:var(--p-gray); border-radius:10px;"></div>
-              <div style="width:34px; height:4px; background:var(--p-teal); border-radius:10px;"></div>
-              <div style="width:34px; height:5px; background:var(--p-navy); border-radius:10px;"></div>
-            </div>
-            <div class="note" style="margin-top:10px;">
-              I1: <b>58</b><br/>
-              I2: <b>78</b><br/>
-              I3: <b>100</b><br/>
-              Cambio 2→3: <b>22</b>
-            </div>
-          </div>
-        </div>
-
-        <div class="legend" style="margin-top:12px;">
-          <span><span class="dot" style="background:var(--p-gray);"></span>Informe 1</span>
-          <span><span class="dot" style="background:var(--p-teal);"></span>Informe 2</span>
-          <span><span class="dot" style="background:var(--p-navy);"></span>Informe 3</span>
-        </div>
-      </div>
-    </section>
-
-    <!-- =========================================================
-         PANEL 3: Causas (3 informes)
-         ========================================================= -->
-    <section class="section">
-      <div class="card">
-        <div class="row wrap">
           <div>
-            <div class="section-title tight">3) Causas </div>
-            <div class="panel-sub">
-              Del Informe 1 al 3 el total <b>baja 45</b> (-38,5%).<br/>
-              I1→I2: <b>sube 72</b> (61,5%). I2→I3: <b>baja 117</b> (-61,9%). Driver 2→3: <b>Retraso en servicios</b> (baja 60).<br/>
-              En el Informe 3 , <b>Retraso + Acompañantes</b> concentran el <b>88,9%</b>.
-            </div>
-          </div>
-          <div class="chiprow">
-            <div class="chip">I1→I2: <b>Sube 72 (61,5%)</b></div>
-            <div class="chip">I2→I3: <b>Baja 117 (61,9%)</b></div>
-          </div>
-        </div>
-
-        <!-- Tendencia -->
-        <div class="card" style="margin-top:12px; box-shadow:none;">
-          <div class="section-title tight">Tendencia (Total y causas clave)</div>
-          <div class="panel-sub">Total + Retraso + Acompañantes + Facturación</div>
-
-          <svg width="720" height="240" viewBox="0 0 720 240" style="margin-top:10px;">
-            <rect x="0" y="0" width="720" height="240" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
-
-            <line x1="80" y1="20" x2="80" y2="190" stroke="#e5e7eb"></line>
-            <line x1="250" y1="20" x2="250" y2="190" stroke="#e5e7eb"></line>
-            <line x1="420" y1="20" x2="420" y2="190" stroke="#e5e7eb"></line>
-
-            <polyline points="80,72.3 250,20.0 420,104.9" fill="none" stroke="#003057" stroke-width="3"></polyline>
-            <polyline points="80,139.0 250,83.9 420,127.4" fill="none" stroke="#007A8A" stroke-width="2" stroke-dasharray="6 4"></polyline>
-            <polyline points="80,123.8 250,132.5 420,141.2" fill="none" stroke="#003057" stroke-width="2" opacity="0.6"></polyline>
-            <polyline points="80,129.6 250,140.5 420,155.0" fill="none" stroke="#D64123" stroke-width="2" stroke-dasharray="2 4"></polyline>
-
-            <circle cx="80" cy="72.3" r="5" fill="#003057"></circle>
-            <circle cx="250" cy="20.0" r="5" fill="#003057"></circle>
-            <circle cx="420" cy="104.9" r="5" fill="#003057"></circle>
-
-            <text x="80" y="214" font-size="12" fill="#6b7280" text-anchor="middle">Informe 1</text>
-            <text x="250" y="214" font-size="12" fill="#6b7280" text-anchor="middle">Informe 2</text>
-            <text x="420" y="214" font-size="12" fill="#6b7280" text-anchor="middle">Informe 3</text>
-
-            <text x="80" y="16" font-size="12" fill="#6b7280" text-anchor="middle">117</text>
-            <text x="250" y="16" font-size="12" fill="#6b7280" text-anchor="middle">189</text>
-            <text x="420" y="16" font-size="12" fill="#6b7280" text-anchor="middle">72</text>
-          </svg>
-
-          <div class="legend">
-            <span><span class="dot" style="background:var(--p-navy);"></span>Total</span>
-            <span><span class="dot" style="background:var(--p-teal);"></span>Retraso</span>
-            <span><span class="dot" style="background:var(--p-navy); opacity:.6;"></span>Acompañantes</span>
-            <span><span class="dot" style="background:var(--p-orange);"></span>Facturación</span>
-          </div>
-        </div>
-
-        <!-- Mini cards -->
-        <div class="grid-3" style="margin-top:12px;">
-          <!-- I1 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row">
-              <div>
-                <div class="small muted"><b>Informe 1</b></div>
-                <div class="kpi">117</div>
-                <div class="kpi-label">Total causas</div>
+            <div class="card" style="box-shadow:none;">
+              <div class="section-title tight">Lectura rápida</div>
+              <div class="note" style="margin-top:8px;">
+                <ul style="margin:0 0 0 18px; padding:0;">
+                  <li>El salto fuerte ocurre entre <b>14 abr–30 jun</b> y <b>01 jul–30 sep</b>.</li>
+                  <li>En el último periodo (<b>01 oct–31 dic</b>) el total sigue subiendo, pero a un ritmo menor.</li>
+                  <li>El componente que más empuja el crecimiento es <b>Aforo cámaras 100%</b>.</li>
+                </ul>
               </div>
             </div>
 
-            <div style="display:flex; align-items:flex-end; gap:8px; height:82px; margin-top:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface);">
-              <div style="width:16px; height:34px; background:var(--p-teal); border-radius:8px;" title="Retraso"></div>
-              <div style="width:16px; height:64px; background:var(--p-navy); opacity:.7; border-radius:8px;" title="Acompañantes"></div>
-              <div style="width:16px; height:52px; background:var(--p-orange); border-radius:8px;" title="Facturación"></div>
-              <div style="width:16px; height:2px; background:#515151; border-radius:8px;" title="Demanda"></div>
-              <div style="width:16px; height:8px; background:var(--p-gray); border-radius:8px;" title="Otros"></div>
-            </div>
-
-            <div class="note" style="margin-top:8px;">
-              Retraso: <b>25</b> · Acompañantes: <b>46</b> · Facturación: <b>38</b> · Demanda: <b>2</b> · Otros: <b>6</b>
-            </div>
-          </div>
-
-          <!-- I2 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row wrap">
-              <div>
-                <div class="small muted"><b>Informe 2</b></div>
-                <div class="kpi">189</div>
-                <div class="kpi-label">Total causas</div>
+            <div class="grid-3" style="margin-top:12px; grid-template-columns: 1fr; gap:12px;">
+              <div class="card" style="box-shadow:none;">
+                <div class="row">
+                  <div>
+                    <div class="small muted"><b>14 de abril al 30 de junio</b></div>
+                    <div class="kpi">3.856</div>
+                    <div class="kpi-label">Total de alertas</div>
+                  </div>
+                  <div class="small muted" style="text-align:right;">
+                    Alertas gestionadas: <b>100%</b><br/>
+                    Cobertura: 37 cámaras, 21 salas
+                  </div>
+                </div>
+                <div class="note" style="margin-top:10px;">
+                  Aforo sala 85%: <b>1.175</b> · Aforo cámaras 100%: <b>2.564</b> · Aforo sala 100%: <b>117</b>
+                </div>
               </div>
-              <div class="badge">I1→I2: <b>Sube 72</b></div>
-            </div>
 
-            <div style="display:flex; align-items:flex-end; gap:8px; height:82px; margin-top:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface);">
-              <div style="width:16px; height:64px; background:var(--p-teal); border-radius:8px;"></div>
-              <div style="width:16px; height:22px; background:var(--p-navy); opacity:.7; border-radius:8px;"></div>
-              <div style="width:16px; height:15px; background:var(--p-orange); border-radius:8px;"></div>
-              <div style="width:16px; height:12px; background:#515151; border-radius:8px;"></div>
-              <div style="width:16px; height:5px; background:var(--p-gray); border-radius:8px;"></div>
-            </div>
-
-            <div class="note" style="margin-top:8px;">
-              Retraso: <b>101</b> · Acompañantes: <b>35</b> · Facturación: <b>24</b> · Demanda: <b>20</b> · Otros: <b>9</b>
-            </div>
-          </div>
-
-          <!-- I3 -->
-          <div class="card" style="box-shadow:none;">
-            <div class="row wrap">
-              <div>
-                <div class="small muted"><b>Informe 3</b></div>
-                <div class="kpi">72</div>
-                <div class="kpi-label">Total causas</div>
+              <div class="card" style="box-shadow:none;">
+                <div class="row">
+                  <div>
+                    <div class="small muted"><b>01 julio al 30 de septiembre</b></div>
+                    <div class="kpi">5.819</div>
+                    <div class="kpi-label">Total de alertas</div>
+                  </div>
+                  <div class="small muted" style="text-align:right;">
+                    Alertas gestionadas: <b>100%</b><br/>
+                    Cobertura: 37 cámaras, 20 salas
+                  </div>
+                </div>
+                <div class="note" style="margin-top:10px;">
+                  Aforo sala 85%: <b>1.668</b> · Aforo cámaras 100%: <b>3.719</b> · Aforo sala 100%: <b>432</b><br/>
+                  Cambio vs periodo anterior: <b>+1.963 (50,9%)</b>
+                </div>
               </div>
-              <div class="badge">I2→I3: <b>Baja 117</b></div>
-            </div>
 
-            <div style="display:flex; align-items:flex-end; gap:8px; height:82px; margin-top:10px; padding:8px; border:1px solid var(--border); border-radius:14px; background:var(--surface);">
-              <div style="width:16px; height:64px; background:var(--p-teal); border-radius:8px;"></div>
-              <div style="width:16px; height:35px; background:var(--p-navy); opacity:.7; border-radius:8px;"></div>
-              <div style="width:16px; height:4px; background:var(--p-orange); border-radius:8px;"></div>
-              <div style="width:16px; height:7px; background:#515151; border-radius:8px;"></div>
-              <div style="width:16px; height:0px; background:var(--p-gray); border-radius:8px;"></div>
-            </div>
+              <div class="card" style="box-shadow:none;">
+                <div class="row">
+                  <div>
+                    <div class="small muted"><b>01 octubre al 31 de diciembre</b></div>
+                    <div class="kpi">6.089</div>
+                    <div class="kpi-label">Total de alertas</div>
+                  </div>
+                  <div class="small muted" style="text-align:right;">
+                    Alertas gestionadas: <b>100%</b><br/>
+                    Cobertura: 37 cámaras, 20 salas
+                  </div>
+                </div>
+                <div class="note" style="margin-top:10px;">
+                  Aforo sala 85%: <b>1.755</b> · Aforo cámaras 100%: <b>3.881</b> · Aforo sala 100%: <b>453</b><br/>
+                  Cambio vs periodo anterior: <b>+270 (4,6%)</b>
+                </div>
+              </div>
 
-            <div class="note" style="margin-top:8px;">
-              Retraso: <b>41</b> · Acompañantes: <b>23</b> · Facturación: <b>3</b> · Demanda: <b>5</b> · Otros: <b>0</b><br/>
-              Driver 2→3: <b>Retraso en servicios</b> (baja <b>60</b>)
+              <div class="card total-box" style="box-shadow:none;">
+                <div class="small muted"><b>Total consolidado</b></div>
+                <div class="kpi kpi-total">15.764</div>
+                <div class="kpi-label">Suma total de alertas de los 3 informes</div>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- =========================================================
-         PANEL 4: Aforo sala 100% (3 informes)
-         ========================================================= -->
+    <!-- PANEL 2 -->
     <section class="section">
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">4) Aforo sala 100% | Tendencia + criticidad + transición</div>
+            <div class="section-title tight">2) Comparación por jornada</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr; align-items:start;">
+          <div>
+            <div class="card" style="box-shadow:none;">
+              <div class="section-title tight">Tendencia por jornada + Total</div>
+
+              <div class="legend" style="margin-top:6px;">
+                <span><span class="dot" style="background:#111827;"></span>Total</span>
+                <span><span class="dot" style="background:var(--p-teal);"></span>Tarde</span>
+                <span><span class="dot" style="background:var(--p-orange);"></span>Mañana</span>
+                <span><span class="dot" style="background:var(--p-navy); opacity:.9;"></span>Noche</span>
+                <span><span class="dot" style="background:var(--p-gray);"></span>Madrugada</span>
+              </div>
+
+              <svg width="980" height="380" viewBox="0 0 980 380" style="margin-top:10px; max-width:100%;">
+                <rect x="0" y="0" width="980" height="380" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
+
+                <line x1="110" y1="50"  x2="950" y2="50"  stroke="#eef2f7"></line>
+                <line x1="110" y1="96"  x2="950" y2="96"  stroke="#eef2f7"></line>
+                <line x1="110" y1="142" x2="950" y2="142" stroke="#eef2f7"></line>
+                <line x1="110" y1="188" x2="950" y2="188" stroke="#eef2f7"></line>
+                <line x1="110" y1="234" x2="950" y2="234" stroke="#eef2f7"></line>
+                <line x1="110" y1="280" x2="950" y2="280" stroke="#eef2f7"></line>
+
+                <text x="102" y="54"  font-size="11" fill="#6b7280" text-anchor="end">6.200</text>
+                <text x="102" y="100" font-size="11" fill="#6b7280" text-anchor="end">5.000</text>
+                <text x="102" y="146" font-size="11" fill="#6b7280" text-anchor="end">3.800</text>
+                <text x="102" y="192" font-size="11" fill="#6b7280" text-anchor="end">2.600</text>
+                <text x="102" y="238" font-size="11" fill="#6b7280" text-anchor="end">1.400</text>
+                <text x="102" y="284" font-size="11" fill="#6b7280" text-anchor="end">0</text>
+
+                <line x1="220" y1="25" x2="220" y2="280" stroke="#e5e7eb"></line>
+                <line x1="520" y1="25" x2="520" y2="280" stroke="#e5e7eb"></line>
+                <line x1="820" y1="25" x2="820" y2="280" stroke="#e5e7eb"></line>
+
+                <polyline points="220,136.92 520,64.12 820,54.11" fill="none" stroke="#111827" stroke-width="5"></polyline>
+                <circle cx="220" cy="136.92" r="6" fill="#111827"></circle>
+                <circle cx="520" cy="64.12" r="6" fill="#111827"></circle>
+                <circle cx="820" cy="54.11" r="6" fill="#111827"></circle>
+
+                <polyline points="220,215.38 520,186.24 820,173.94" fill="none" stroke="var(--p-teal)" stroke-width="4.5"></polyline>
+                <circle cx="220" cy="215.38" r="5.5" fill="var(--p-teal)"></circle>
+                <circle cx="520" cy="186.24" r="5.5" fill="var(--p-teal)"></circle>
+                <circle cx="820" cy="173.94" r="5.5" fill="var(--p-teal)"></circle>
+
+                <polyline points="220,231.34 520,203.05 820,206.87" fill="none" stroke="var(--p-orange)" stroke-width="4.5"></polyline>
+                <circle cx="220" cy="231.34" r="5.5" fill="var(--p-orange)"></circle>
+                <circle cx="520" cy="203.05" r="5.5" fill="var(--p-orange)"></circle>
+                <circle cx="820" cy="206.87" r="5.5" fill="var(--p-orange)"></circle>
+
+                <polyline points="220,252.39 520,237.75 820,237.08" fill="none" stroke="var(--p-navy)" stroke-width="4.5" opacity="0.9"></polyline>
+                <circle cx="220" cy="252.39" r="5.5" fill="var(--p-navy)" opacity="0.9"></circle>
+                <circle cx="520" cy="237.75" r="5.5" fill="var(--p-navy)" opacity="0.9"></circle>
+                <circle cx="820" cy="237.08" r="5.5" fill="var(--p-navy)" opacity="0.9"></circle>
+
+                <polyline points="220,277.85 520,277.11 820,276.29" fill="none" stroke="var(--p-gray)" stroke-width="4.5"></polyline>
+                <circle cx="220" cy="277.85" r="5.5" fill="var(--p-gray)"></circle>
+                <circle cx="520" cy="277.11" r="5.5" fill="var(--p-gray)"></circle>
+                <circle cx="820" cy="276.29" r="5.5" fill="var(--p-gray)"></circle>
+
+                <rect x="196" y="104" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="117" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">3.856</text>
+                <rect x="496" y="28" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="41" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">5.819</text>
+                <rect x="796" y="18" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="31" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">6.089</text>
+
+                <rect x="196" y="188" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="201" font-size="11" fill="#0f172a" text-anchor="middle">1.742</text>
+                <rect x="496" y="158" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="171" font-size="11" fill="#0f172a" text-anchor="middle">2.527</text>
+                <rect x="796" y="146" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="159" font-size="11" fill="#0f172a" text-anchor="middle">2.860</text>
+
+                <rect x="196" y="240" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="253" font-size="11" fill="#0f172a" text-anchor="middle">1.312</text>
+                <rect x="496" y="212" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="225" font-size="11" fill="#0f172a" text-anchor="middle">2.075</text>
+                <rect x="796" y="216" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="229" font-size="11" fill="#0f172a" text-anchor="middle">1.972</text>
+
+                <rect x="196" y="258" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="271" font-size="11" fill="#0f172a" text-anchor="middle">744</text>
+                <rect x="496" y="244" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="257" font-size="11" fill="#0f172a" text-anchor="middle">1.139</text>
+                <rect x="796" y="244" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="257" font-size="11" fill="#0f172a" text-anchor="middle">1.157</text>
+
+                <rect x="196" y="292" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="220" y="305" font-size="11" fill="#0f172a" text-anchor="middle">58</text>
+                <rect x="496" y="292" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="520" y="305" font-size="11" fill="#0f172a" text-anchor="middle">78</text>
+                <rect x="796" y="292" width="48" height="18" rx="6" fill="#fff" opacity="0.95" stroke="#e5e7eb"></rect>
+                <text x="820" y="305" font-size="11" fill="#0f172a" text-anchor="middle">100</text>
+
+                <text x="220" y="350" font-size="12" fill="#6b7280" text-anchor="middle">14 abr – 30 jun</text>
+                <text x="520" y="350" font-size="12" fill="#6b7280" text-anchor="middle">01 jul – 30 sep</text>
+                <text x="820" y="350" font-size="12" fill="#6b7280" text-anchor="middle">01 oct – 31 dic</text>
+              </svg>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="box-shadow:none;">
+              <div class="section-title tight">Lectura rápida</div>
+              <div class="note" style="margin-top:8px;">
+                <b>Total:</b> sube fuerte del <b>14 de abril al 30 de junio</b> al <b>01 de julio al 30 de septiembre</b> y luego se mantiene alto del
+                <b>01 de julio al 30 de septiembre</b> al <b>01 de octubre al 31 de diciembre</b>.<br/><br/>
+                <b>Por jornadas:</b>
+                <ul style="margin:8px 0 0 18px; padding:0;">
+                  <li><b>Tarde</b> mantiene una tendencia ascendente (es donde más crece).</li>
+                  <li><b>Mañana</b> sube en el segundo periodo y baja en el tercero.</li>
+                  <li><b>Noche</b> se mantiene estable con leve aumento.</li>
+                  <li><b>Madrugada</b> sigue siendo baja pero con aumento progresivo.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="section-title tight">Conclusiones</div>
+              <div class="note" style="margin-top:8px;">
+                <b>Mayor aumento:</b> <span style="color:var(--title); font-weight:800;">Tarde</span> (+333)<br/>
+                <b>Mayor descenso:</b> <span style="color:var(--title); font-weight:800;">Mañana</span> (-103)
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 3 -->
+    <section class="section">
+      <div class="card">
+        <div class="row wrap">
+          <div>
+            <div class="section-title tight">3) Causas | Tendencia de causas por informe</div>
+            <div class="panel-sub">Cada línea corresponde a un informe con <b>sus causas</b> y <b>sus valores</b> (tal como tus láminas).</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr;">
+          <div class="card" style="box-shadow:none;">
+            <div class="section-title tight">Gráficas por informe</div>
+
+            <div class="card" style="margin-top:10px; box-shadow:none;">
+              <div class="row wrap" style="align-items:flex-start;">
+                <div class="small muted"><b>Informe 1 (14 de abril al 30 de junio)</b></div>
+                <div class="badge"><b>TOTAL 117</b></div>
+              </div>
+
+              <svg width="980" height="250" viewBox="0 0 980 250" style="margin-top:10px; max-width:100%;">
+                <rect x="0" y="0" width="980" height="250" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
+                <line x1="70" y1="40"  x2="950" y2="40"  stroke="#eef2f7"></line>
+                <line x1="70" y1="75"  x2="950" y2="75"  stroke="#eef2f7"></line>
+                <line x1="70" y1="110" x2="950" y2="110" stroke="#eef2f7"></line>
+                <line x1="70" y1="145" x2="950" y2="145" stroke="#eef2f7"></line>
+
+                <text x="62" y="44"  font-size="11" fill="#6b7280" text-anchor="end">50</text>
+                <text x="62" y="79"  font-size="11" fill="#6b7280" text-anchor="end">35</text>
+                <text x="62" y="114" font-size="11" fill="#6b7280" text-anchor="end">20</text>
+                <text x="62" y="149" font-size="11" fill="#6b7280" text-anchor="end">5</text>
+
+                <polyline points="90,49.2 220,67.6 350,97.5 480,148.1 610,150.4 740,150.4 870,152.7" fill="none" stroke="#003057" stroke-width="3"></polyline>
+
+                <circle cx="90" cy="49.2" r="5.5" fill="#003057"></circle>
+                <circle cx="220" cy="67.6" r="5.5" fill="#003057"></circle>
+                <circle cx="350" cy="97.5" r="5.5" fill="#003057"></circle>
+                <circle cx="480" cy="148.1" r="5.5" fill="#003057"></circle>
+                <circle cx="610" cy="150.4" r="5.5" fill="#003057"></circle>
+                <circle cx="740" cy="150.4" r="5.5" fill="#003057"></circle>
+                <circle cx="870" cy="152.7" r="5.5" fill="#003057"></circle>
+
+                <g>
+                  <rect x="72" y="26" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="90" y="39" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">46</text>
+
+                  <rect x="202" y="44" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="220" y="57" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">38</text>
+
+                  <rect x="332" y="74" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="350" y="87" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">25</text>
+
+                  <rect x="466" y="126" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="480" y="139" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">3</text>
+
+                  <rect x="596" y="128" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="610" y="141" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">2</text>
+
+                  <rect x="726" y="128" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="740" y="141" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">2</text>
+
+                  <rect x="856" y="130" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="870" y="143" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">1</text>
+                </g>
+
+                <g font-size="11" fill="#6b7280">
+                  <text x="90" y="190" text-anchor="middle">
+                    <tspan x="90" dy="0">Alta presencia</tspan>
+                    <tspan x="90" dy="14">de acompañantes</tspan>
+                  </text>
+                  <text x="220" y="190" text-anchor="middle">
+                    <tspan x="220" dy="0">Demoras en la</tspan>
+                    <tspan x="220" dy="14">facturación</tspan>
+                  </text>
+                  <text x="350" y="190" text-anchor="middle">
+                    <tspan x="350" dy="0">Retraso en la</tspan>
+                    <tspan x="350" dy="14">prestación de</tspan>
+                    <tspan x="350" dy="14">servicios</tspan>
+                  </text>
+                  <text x="480" y="190" text-anchor="middle">
+                    <tspan x="480" dy="0">Caída de</tspan>
+                    <tspan x="480" dy="14">sistemas</tspan>
+                  </text>
+                  <text x="610" y="190" text-anchor="middle">
+                    <tspan x="610" dy="0">Alta demanda</tspan>
+                    <tspan x="610" dy="14">pacientes</tspan>
+                    <tspan x="610" dy="14">programados</tspan>
+                  </text>
+                  <text x="740" y="190" text-anchor="middle">
+                    <tspan x="740" dy="0">Falta de</tspan>
+                    <tspan x="740" dy="14">personal</tspan>
+                    <tspan x="740" dy="14">médico</tspan>
+                  </text>
+                  <text x="870" y="190" text-anchor="middle">
+                    <tspan x="870" dy="0">Circuito de</tspan>
+                    <tspan x="870" dy="14">obesidad</tspan>
+                    <tspan x="870" dy="14">genera aforo</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="row wrap" style="align-items:flex-start;">
+                <div class="small muted"><b>Informe 2 (01 julio al 30 de septiembre)</b></div>
+                <div class="badge"><b>TOTAL 189</b></div>
+              </div>
+
+              <svg width="980" height="250" viewBox="0 0 980 250" style="margin-top:10px; max-width:100%;">
+                <rect x="0" y="0" width="980" height="250" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
+
+                <line x1="70" y1="40"  x2="950" y2="40"  stroke="#eef2f7"></line>
+                <line x1="70" y1="75"  x2="950" y2="75"  stroke="#eef2f7"></line>
+                <line x1="70" y1="110" x2="950" y2="110" stroke="#eef2f7"></line>
+                <line x1="70" y1="145" x2="950" y2="145" stroke="#eef2f7"></line>
+
+                <text x="62" y="44"  font-size="11" fill="#6b7280" text-anchor="end">110</text>
+                <text x="62" y="79"  font-size="11" fill="#6b7280" text-anchor="end">75</text>
+                <text x="62" y="114" font-size="11" fill="#6b7280" text-anchor="end">40</text>
+                <text x="62" y="149" font-size="11" fill="#6b7280" text-anchor="end">5</text>
+
+                <polyline points="90,49.5 220,118.4 350,129.9 480,134.1 610,150.8 740,150.8 870,153.0" fill="none" stroke="#007A8A" stroke-width="3"></polyline>
+
+                <circle cx="90" cy="49.5" r="5.5" fill="#007A8A"></circle>
+                <circle cx="220" cy="118.4" r="5.5" fill="#007A8A"></circle>
+                <circle cx="350" cy="129.9" r="5.5" fill="#007A8A"></circle>
+                <circle cx="480" cy="134.1" r="5.5" fill="#007A8A"></circle>
+                <circle cx="610" cy="150.8" r="5.5" fill="#007A8A"></circle>
+                <circle cx="740" cy="150.8" r="5.5" fill="#007A8A"></circle>
+                <circle cx="870" cy="153.0" r="5.5" fill="#007A8A"></circle>
+
+                <g>
+                  <rect x="70" y="26" width="40" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="90" y="39" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">101</text>
+
+                  <rect x="202" y="96" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="220" y="109" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">35</text>
+
+                  <rect x="332" y="108" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="350" y="121" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">24</text>
+
+                  <rect x="462" y="112" width="36" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="480" y="125" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">20</text>
+
+                  <rect x="596" y="128" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="610" y="141" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">4</text>
+
+                  <rect x="726" y="128" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="740" y="141" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">4</text>
+
+                  <rect x="856" y="130" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                  <text x="870" y="143" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">1</text>
+                </g>
+
+                <g font-size="11" fill="#6b7280">
+                  <text x="90" y="190" text-anchor="middle">
+                    <tspan x="90" dy="0">Retraso en la</tspan>
+                    <tspan x="90" dy="14">prestación de</tspan>
+                    <tspan x="90" dy="14">servicios</tspan>
+                  </text>
+                  <text x="220" y="190" text-anchor="middle">
+                    <tspan x="220" dy="0">Alta presencia</tspan>
+                    <tspan x="220" dy="14">de acompañantes</tspan>
+                  </text>
+                  <text x="350" y="190" text-anchor="middle">
+                    <tspan x="350" dy="0">Demoras en la</tspan>
+                    <tspan x="350" dy="14">facturación</tspan>
+                  </text>
+                  <text x="480" y="190" text-anchor="middle">
+                    <tspan x="480" dy="0">Alta demanda de</tspan>
+                    <tspan x="480" dy="14">pacientes</tspan>
+                    <tspan x="480" dy="14">programados</tspan>
+                  </text>
+                  <text x="610" y="190" text-anchor="middle">
+                    <tspan x="610" dy="0">Caída de</tspan>
+                    <tspan x="610" dy="14">sistemas</tspan>
+                  </text>
+                  <text x="740" y="190" text-anchor="middle">
+                    <tspan x="740" dy="0">Circuito de obesidad</tspan>
+                    <tspan x="740" dy="14">genera aforo</tspan>
+                  </text>
+                  <text x="870" y="190" text-anchor="middle">
+                    <tspan x="870" dy="0">Pacientes con</tspan>
+                    <tspan x="870" dy="14">cita extra</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="row wrap" style="align-items:flex-start;">
+                <div class="small muted"><b>Informe 3 (01 octubre al 31 de diciembre)</b></div>
+                <div class="badge"><b>TOTAL 72</b></div>
+              </div>
+
+              <svg width="980" height="240" viewBox="0 0 980 240" style="margin-top:10px; max-width:100%;">
+                <rect x="0" y="0" width="980" height="240" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
+
+                <line x1="90" y1="45"  x2="950" y2="45"  stroke="#eef2f7"></line>
+                <line x1="90" y1="78"  x2="950" y2="78"  stroke="#eef2f7"></line>
+                <line x1="90" y1="111" x2="950" y2="111" stroke="#eef2f7"></line>
+                <line x1="90" y1="144" x2="950" y2="144" stroke="#eef2f7"></line>
+
+                <text x="82" y="49"  font-size="11" fill="#6b7280" text-anchor="end">45</text>
+                <text x="82" y="82"  font-size="11" fill="#6b7280" text-anchor="end">30</text>
+                <text x="82" y="115" font-size="11" fill="#6b7280" text-anchor="end">15</text>
+                <text x="82" y="148" font-size="11" fill="#6b7280" text-anchor="end">0</text>
+
+                <polyline points="180,53.4 420,91.4 660,129.4 900,133.6" fill="none" stroke="#D64123" stroke-width="3"></polyline>
+
+                <circle cx="180" cy="53.4" r="5.5" fill="#D64123"></circle>
+                <circle cx="420" cy="91.4" r="5.5" fill="#D64123"></circle>
+                <circle cx="660" cy="129.4" r="5.5" fill="#D64123"></circle>
+                <circle cx="900" cy="133.6" r="5.5" fill="#D64123"></circle>
+
+                <rect x="160" y="30" width="40" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                <text x="180" y="43" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">41</text>
+
+                <rect x="400" y="68" width="40" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                <text x="420" y="81" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">23</text>
+
+                <rect x="646" y="106" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                <text x="660" y="119" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">5</text>
+
+                <rect x="886" y="110" width="28" height="18" rx="6" fill="#fff" stroke="#e5e7eb"></rect>
+                <text x="900" y="123" font-size="11" fill="#111827" text-anchor="middle" font-weight="800">3</text>
+
+                <g font-size="11" fill="#6b7280">
+                  <text x="180" y="180" text-anchor="middle">
+                    <tspan x="180" dy="0">Retraso en la</tspan>
+                    <tspan x="180" dy="14">prestación de</tspan>
+                    <tspan x="180" dy="14">servicios</tspan>
+                  </text>
+
+                  <text x="420" y="180" text-anchor="middle">
+                    <tspan x="420" dy="0">Alta presencia</tspan>
+                    <tspan x="420" dy="14">de acompañantes</tspan>
+                  </text>
+
+                  <text x="660" y="180" text-anchor="middle">
+                    <tspan x="660" dy="0">Alta demanda</tspan>
+                    <tspan x="660" dy="14">pacientes</tspan>
+                    <tspan x="660" dy="14">programados</tspan>
+                  </text>
+
+                  <text x="900" y="180" text-anchor="middle">
+                    <tspan x="900" dy="0">Demoras en la</tspan>
+                    <tspan x="900" dy="14">facturación</tspan>
+                  </text>
+                </g>
+              </svg>
+            </div>
+          </div>
+
+          <div>
+            <div class="card" style="box-shadow:none;">
+              <div class="section-title tight">Análisis</div>
+
+              <div class="note" style="margin-top:10px;">
+                <b>Informe 1 (Total 117):</b> el mayor peso está en <b>Acompañantes (46)</b> y <b>Facturación (38)</b>. El resto de causas son de baja frecuencia (≤3).<br/><br/>
+
+                <b>Informe 2 (Total 189):</b> ocurre el pico. La causa dominante es <b>Retraso en servicios (101)</b> y luego <b>Acompañantes (35)</b>. Aparecen causas adicionales: <b>Caída de sistemas (4)</b>, <b>Circuito de obesidad (4)</b> y <b>Cita extra (1)</b>.<br/><br/>
+
+                <b>Informe 3 (Total 72):</b> el total baja y se concentra en pocas causas: <b>Retraso (41)</b> y <b>Acompañantes (23)</b> explican la mayor parte. <b>Facturación</b> cae a <b>3</b> (mejora clara).
+              </div>
+            </div>
+
+            <div class="card" style="margin-top:12px; box-shadow:none;">
+              <div class="section-title tight">Conclusión</div>
+              <div class="note" style="margin-top:10px;">
+                La prioridad de control porque se repite y tiene mayor peso en los tres informes es
+                <b>Retraso en la prestación de servicios</b> y <b>Alta presencia de acompañantes</b>.
+                Cuando estas dos causas disminuyen, el total de alertas también tiende a bajar de forma marcada.<br/><br/>
+
+                <b>Causas que más se repiten:</b>
+                <ul style="margin:6px 0 0 18px;">
+                  <li><b>Retraso en la prestación de servicios</b> (principal causa en los últimos informes).</li>
+                  <li><b>Alta presencia de acompañantes</b> (se mantiene en todos los periodos).</li>
+                  <li><b>Demoras en la facturación</b>, aunque su peso disminuye progresivamente.</li>
+                </ul>
+
+                En el último periodo el problema se concentra principalmente en las dos primeras causas,
+                lo que indica que el foco de mejora debe estar en la <b>capacidad operativa del servicio</b>
+                y en el <b>control del flujo de acompañantes</b>.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PANEL 4 -->
+    <section class="section">
+      <div class="card">
+        <div class="row wrap">
+          <div>
+            <div class="section-title tight">4) Aforo sala 100%</div>
             <div class="panel-sub">
               Tendencia general: sube fuerte del I1 al I2 (388) y luego se mantiene al alza del I2 al I3 (21).<br/>
-              Concentración del riesgo en <b>Urgencias Piso 3</b>: I2 aporta 54,2% del total y en I3 sube a 65,1%.<br/>
+              Concentración del riesgo en <b>Urgencias Piso 3</b>: I2 aporta 54,2% del total y en I3 sube a 65,1%.
             </div>
-          </div>
-          <div class="chiprow">
-            <div class="chip">I1→I2: <b>Sube 388 (881,8%)</b></div>
-            <div class="chip">I2→I3: <b>Sube 21 (4,9%)</b></div>
           </div>
         </div>
 
-        <!-- KPIs -->
         <div class="grid-4" style="margin-top:12px;">
           <div class="card" style="box-shadow:none;">
-            <div class="small muted"><b>Informe 1 (17/04/25–30/06/25)</b></div>
+            <div class="small muted"><b>Informe 1 (14/04/25–30/06/25)</b></div>
             <div class="kpi">44</div>
             <div class="kpi-label">Total alertas 100% sala</div>
           </div>
@@ -741,18 +959,14 @@ body::before{
             <div class="kpi-label">Total (Alto 82,6%)</div>
           </div>
 
-          <div class="card" style="box-shadow:none;">
-            <div class="small muted"><b>Concentración (Urgencias P3)</b></div>
-            <div class="note" style="margin-top:10px;">
-              I2: <b>234</b> (54,2%)<br/>
-              I3: <b>295</b> (65,1%)
-            </div>
+          <div class="card total-box" style="box-shadow:none;">
+            <div class="small muted"><b>Total consolidado I1 + I2 + I3</b></div>
+            <div class="kpi kpi-total">929</div>
+            <div class="kpi-label">Total alertas aforo sala 100%</div>
           </div>
         </div>
 
-        <!-- Tendencia + Mix -->
         <div class="grid-2" style="margin-top:12px;">
-          <!-- Tendencia -->
           <div class="card" style="box-shadow:none;">
             <div class="section-title tight">Tendencia total de alertas (I1–I3)</div>
             <div class="panel-sub">Visualiza el salto estructural del I1→I2 y la permanencia alta en I3.</div>
@@ -778,10 +992,9 @@ body::before{
             </svg>
           </div>
 
-          <!-- Mix -->
           <div class="card" style="box-shadow:none;">
             <div class="section-title tight">Mix de criticidad</div>
-            <div class="panel-sub">Comparación I2 vs I3 (I1 no trae criticidad).</div>
+            <div class="panel-sub">Comparación I2 vs I3 .</div>
 
             <div class="small" style="font-weight:800; color:var(--title); margin-top:10px;">Informe 2</div>
             <div class="bar-wrap" style="width:240px; margin-top:6px;">
@@ -815,7 +1028,6 @@ body::before{
           </div>
         </div>
 
-        <!-- Top salas -->
         <div class="card" style="margin-top:12px; box-shadow:none;">
           <div class="section-title tight">Top salas (donde se concentra el problema)</div>
 
@@ -858,7 +1070,6 @@ body::before{
           </div>
         </div>
 
-        <!-- Transición -->
         <div class="card" style="margin-top:12px; box-shadow:none;">
           <div class="section-title tight">Transición de criticidad (I1 → I2 → I3)</div>
 
@@ -902,13 +1113,6 @@ body::before{
                 <td class="center">Se consolida en Alto (prioridad).</td>
               </tr>
               <tr>
-                <td>Sala de bienvenida Piso 7</td>
-                <td class="center cell-med">Medio</td>
-                <td class="center cell-alto">Alto</td>
-                <td class="center cell-med">Medio</td>
-                <td class="center">Patrón “pico”: sube a Alto y retorna.</td>
-              </tr>
-              <tr>
                 <td>Urgencias piso 1</td>
                 <td class="center cell-med">Medio</td>
                 <td class="center cell-alto">Alto</td>
@@ -922,11 +1126,8 @@ body::before{
       </div>
     </section>
 
-    <!-- FOOTER -->
     <section class="section">
-      <div class="card">
-
-      </div>
+      <div class="card"></div>
     </section>
 
   </div>
