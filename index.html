@@ -3,78 +3,92 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Reporte Corporativo · 3 Informes</title>
+  <title>Informe Ejecutivo de Gestión de Tickets</title>
 
   <style>
     :root{
-      --title:#003057;
-      --bg:#ffffff;
+      --title:#0f2742;
+      --bg:#f3f6fa;
       --text:#1f2937;
-      --muted:#6b7280;
-      --border:#e5e7eb;
-      --surface:#f9fafb;
-      --shadow:0 6px 18px rgba(0,0,0,.06);
+      --muted:#667085;
+      --border:#dbe3ec;
+      --surface:#f8fafc;
+      --shadow:0 8px 24px rgba(15,39,66,.08);
       --r:16px;
 
-      /* Paleta corporativa */
-      --p-navy:#003057;
-      --p-teal:#007A8A;
-      --p-orange:#D64123;
-      --p-gray:#C1C5C8;
-      --p-lilac:#E5E1E6;
+      --p-navy:#0f2742;
+      --p-teal:#0f766e;
+      --p-orange:#b45309;
+      --p-gray:#98a2b3;
+      --p-lilac:#e9edf5;
 
-      /* Resaltado total */
-      --total-red:#C62828;
-      --total-red-soft:#FDECEC;
+      --accent:#1d4ed8;
+      --accent-soft:#eaf2ff;
 
-      /* Semáforo criticidad (suave) */
-      --alto-bg:#FCE8E3; --alto-tx:#8A1F0D;
-      --med-bg:#FFF4E5;  --med-tx:#7A3E00;
-      --bajo-bg:#EAF6F3; --bajo-tx:#0B4B3F;
+      --total-ink:#0f2742;
+      --total-soft:#eef4fb;
 
-      --fs-base: 16px;
-      --fs-small: 14px;
-      --fs-note: 15px;
-      --fs-lead: 16px;
-      --fs-title: 26px;
-      --fs-section: 18px;
-      --fs-kpi: 44px;
-      --fs-kpi-label: 14px;
-      --fs-table: 14px;
-      --fs-legend: 14px;
+      --alto-bg:#fdeeee; --alto-tx:#9f2d20;
+      --med-bg:#fff4e5;  --med-tx:#8a5300;
+      --bajo-bg:#eaf7f2; --bajo-tx:#17644f;
 
-      --svg-text: 15px;
-      --svg-text-muted: 14px;
-      --svg-text-bold: 14px;
+      --fs-base: 15px;
+      --fs-small: 13px;
+      --fs-note: 14px;
+      --fs-lead: 15px;
+      --fs-title: 30px;
+      --fs-section: 20px;
+      --fs-kpi: 40px;
+      --fs-kpi-label: 13px;
+      --fs-table: 13px;
+      --fs-legend: 13px;
+
+      --svg-text: 14px;
+      --svg-text-muted: 13px;
+      --svg-text-bold: 13px;
     }
 
     *{box-sizing:border-box}
     body{
       margin:0;
-      font-family: Arial, sans-serif;
+      font-family: Arial, Helvetica, sans-serif;
       background: var(--bg);
       color: var(--text);
       font-size: var(--fs-base);
       position: relative;
       min-height: 100vh;
+      line-height:1.55;
     }
 
     .page{
-      max-width: 1220px;
+      max-width: 1240px;
       margin: 0 auto;
-      padding: 18px;
+      padding: 22px;
     }
 
     .page-header{
       display:flex;
       justify-content:space-between;
       align-items:flex-end;
-      gap:12px;
-      padding: 14px 16px;
+      gap:18px;
+      padding: 22px 24px;
       border:1px solid var(--border);
-      border-radius: var(--r);
+      border-radius: 22px;
       box-shadow: var(--shadow);
-      background:#fff;
+      background:linear-gradient(135deg,#ffffff 0%, #f7fbff 100%);
+    }
+
+    .header-kicker{
+      display:inline-block;
+      padding:6px 10px;
+      border-radius:999px;
+      background:var(--accent-soft);
+      color:var(--accent);
+      font-size:12px;
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      margin-bottom:10px;
     }
 
     .h-title{
@@ -82,33 +96,58 @@
       font-size: var(--fs-title);
       font-weight:800;
       color:var(--title);
+      line-height:1.15;
     }
 
-    .section{ margin-top:14px; }
+    .header-subtitle{
+      margin-top:8px;
+      color:var(--muted);
+      max-width:760px;
+      font-size:14px;
+    }
+
+    .header-box{
+      min-width:220px;
+      padding:14px 16px;
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:#fff;
+      font-size:13px;
+      color:var(--muted);
+    }
+
+    .section{ margin-top:16px; }
     .section-title{
       font-size: var(--fs-section);
       font-weight:800;
       color:var(--title);
-      margin: 0 0 10px 0;
+      margin: 0 0 8px 0;
+    }
+
+    .section-desc{
+      font-size:13px;
+      color:var(--muted);
+      margin:0;
     }
 
     .card{
       background:#fff;
       border:1px solid var(--border);
-      border-radius:14px;
-      padding:14px 16px;
+      border-radius:16px;
+      padding:16px 18px;
       box-shadow: var(--shadow);
     }
 
-    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:12px;}
-    .grid-2{display:grid; grid-template-columns: 1.4fr 1fr; gap:12px;}
-    .grid-4{display:grid; grid-template-columns:repeat(4, 1fr); gap:12px;}
+    .grid-3{display:grid; grid-template-columns:repeat(3, 1fr); gap:14px;}
+    .grid-2{display:grid; grid-template-columns: 1.4fr 1fr; gap:14px;}
+    .grid-4{display:grid; grid-template-columns:repeat(4, 1fr); gap:14px;}
 
     @media (max-width: 1020px){
       .grid-4{grid-template-columns:repeat(2,1fr);}
       .grid-3{grid-template-columns:1fr;}
       .grid-2{grid-template-columns:1fr;}
       .chiprow{justify-content:flex-start;}
+      .page-header{flex-direction:column; align-items:flex-start;}
     }
 
     .kpi{
@@ -125,26 +164,19 @@
     }
 
     .kpi-total{
-      color: var(--total-red) !important;
-      font-size: 52px;
+      color: var(--total-ink) !important;
+      font-size: 48px;
     }
 
     .total-box{
-      background: var(--total-red-soft);
-      border: 2px solid var(--total-red);
+      background: var(--total-soft);
+      border: 1px solid #cfe0f2;
       text-align: center;
     }
 
-    .total-text{
-      color: var(--total-red);
+    .total-text, .total-inline{
+      color: var(--total-ink);
       font-weight: 800;
-      font-size: 20px;
-    }
-
-    .total-inline{
-      color: var(--total-red);
-      font-weight: 800;
-      font-size: 18px;
     }
 
     .muted{color:var(--muted)}
@@ -155,7 +187,7 @@
       height:12px;
       border-radius:999px;
       overflow:hidden;
-      background:#f3f4f6;
+      background:#eef2f6;
       border:1px solid var(--border);
       display:flex;
     }
@@ -187,7 +219,7 @@
     }
     thead th{
       text-align:left;
-      padding:10px;
+      padding:11px 10px;
       border-bottom:1px solid var(--border);
       background:var(--surface);
       color:var(--title);
@@ -195,7 +227,7 @@
     }
     tbody td{
       padding:10px;
-      border-bottom:1px solid #f1f5f9;
+      border-bottom:1px solid #edf2f7;
     }
     tbody tr:last-child td{border-bottom:0;}
     .num{text-align:right;}
@@ -206,9 +238,9 @@
       padding:4px 10px;
       border-radius:999px;
       font-weight:800;
-      font-size:13px;
+      font-size:12px;
       margin-left:6px;
-      border:1px solid rgba(0,0,0,.06);
+      border:1px solid rgba(0,0,0,.05);
     }
     .pill.alto{ background:var(--alto-bg); color:var(--alto-tx); }
     .pill.med{ background:var(--med-bg); color:var(--med-tx); }
@@ -221,49 +253,34 @@
     .row{display:flex; justify-content:space-between; gap:12px; align-items:flex-end;}
     .small{font-size: var(--fs-small);}
     .tight{margin:0;}
-    .panel-sub{font-size: var(--fs-small); color:var(--muted); margin-top:4px; line-height:1.7;}
+    .panel-sub{font-size: var(--fs-small); color:var(--muted); margin-top:4px; line-height:1.6;}
     .badge{
-      font-size: var(--fs-small);
+      font-size: 12px;
       padding:6px 10px;
       border-radius:999px;
       border:1px solid var(--border);
       background:var(--surface);
       white-space:nowrap;
+      color:var(--title);
     }
     .wrap{flex-wrap:wrap}
 
-    body::before{
-      content:"";
-      position: fixed;
-      inset: 0;
-      background-image: url("TABLERO-1920x1080-MARCA-DE-AGUA-BLANCO.jpg");
-      background-size: cover;
-      background-position: center 30%;
-      background-repeat: no-repeat;
-      opacity: 0.90;
-      z-index: -1;
-    }
+    .card, .page-header{backdrop-filter: blur(2px);}
 
-    .card, .page-header{
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(2px);
-    }
-
-    svg text, svg tspan{
-      font-size: var(--svg-text) !important;
-    }
-
-    svg text[fill="#6b7280"], svg tspan[fill="#6b7280"]{
-      font-size: var(--svg-text-muted) !important;
-    }
-
-    svg text[font-weight="800"]{
-      font-size: var(--svg-text-bold) !important;
-    }
-
+    svg text, svg tspan{ font-size: var(--svg-text) !important; }
+    svg text[fill="#6b7280"], svg tspan[fill="#6b7280"]{ font-size: var(--svg-text-muted) !important; }
+    svg text[font-weight="800"]{ font-size: var(--svg-text-bold) !important; }
     svg text{ dominant-baseline: middle; }
     svg rect[height="18"]{ height: 22px !important; }
     ul{ line-height: 1.7; }
+
+    .executive-box{
+      padding:14px 16px;
+      background:#f7fafc;
+      border:1px solid var(--border);
+      border-left:4px solid var(--accent);
+      border-radius:12px;
+    }
   </style>
 </head>
 
@@ -272,7 +289,17 @@
 
     <div class="page-header">
       <div>
-        <h1 class="h-title">Reporte gestión de tickets · Comparación de los 3 informes</h1>
+        <div class="header-kicker">Informe ejecutivo</div>
+        <h1 class="h-title">Gestión de tickets y alertas · Análisis comparativo de tres periodos</h1>
+        <div class="header-subtitle">
+          Documento reorganizado en formato corporativo, conservando la totalidad de los gráficos y datos originales,
+          con una narrativa orientada a gerencia, mayor claridad ejecutiva y una jerarquía visual más sobria y profesional.
+        </div>
+      </div>
+      <div class="header-box">
+        <div><b>Enfoque:</b> Lectura ejecutiva</div>
+        <div style="margin-top:6px;"><b>Contenido:</b> Tendencias, causas y focos críticos</div>
+        <div style="margin-top:6px;"><b>Base:</b> Consolidado de 3 informes</div>
       </div>
     </div>
 
@@ -281,14 +308,38 @@
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">1) Gestión de tickets | Comparación de los 3 informes</div>
+            <div class="section-title tight">1. Panorama general de la gestión de tickets</div>
+            <p class="section-desc">Vista consolidada del comportamiento global de alertas y su composición por tipo de aforo.</p>
           </div>
         </div>
 
-        <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr;">
+        <div class="grid-4" style="margin-top:14px;">
+          <div class="card" style="box-shadow:none;">
+            <div class="small muted"><b>Total consolidado</b></div>
+            <div class="kpi">15.764</div>
+            <div class="kpi-label">Suma total de alertas de los 3 periodos</div>
+          </div>
+          <div class="card" style="box-shadow:none;">
+            <div class="small muted"><b>Crecimiento acumulado</b></div>
+            <div class="kpi">57,9%</div>
+            <div class="kpi-label">Variación entre el primer y el tercer periodo</div>
+          </div>
+          <div class="card" style="box-shadow:none;">
+            <div class="small muted"><b>Última variación</b></div>
+            <div class="kpi">4,6%</div>
+            <div class="kpi-label">Cambio entre julio-septiembre y octubre-diciembre</div>
+          </div>
+          <div class="card total-box" style="box-shadow:none;">
+            <div class="small muted"><b>Principal impulsor</b></div>
+            <div class="kpi kpi-total">3.881</div>
+            <div class="kpi-label">Aforo cámaras 100% en el último periodo</div>
+          </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:14px; grid-template-columns: 1.35fr 1fr;">
           <div>
             <div class="card" style="box-shadow:none;">
-              <div class="section-title tight">Tendencia (total y aforos)</div>
+              <div class="section-title tight">Tendencia consolidada del total y de los aforos</div>
 
               <div class="legend" style="margin-top:6px;">
                 <span><span class="dot" style="background:#111827;"></span>Total</span>
@@ -371,17 +422,17 @@
             </div>
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
-              <div class="section-title tight">Conclusiones</div>
+              <div class="section-title tight">Resumen ejecutivo del comportamiento general</div>
               <div class="note" style="margin-top:8px;">
-                <b>Aumento total (14 abr–30 jun → 01 oct–31 dic):</b> +2.233 (<b>57,9%</b>).<br/>
-                <b>Último cambio (01 jul–30 sep → 01 oct–31 dic):</b> +270 (<b>4,6%</b>).<br/>
-                <b>Principal responsable del aumento 01 jul–30 sep → 01 oct–31 dic:</b> Aforo cámaras 100% (+162).<br/>
-                <b>Alertas con causa asociada (01 oct–31 dic):</b> 72 (1,18%).
+                <b>Crecimiento acumulado del periodo inicial al final:</b> +2.233 alertas (<b>57,9%</b>).<br/>
+                <b>Variación del último corte:</b> +270 alertas (<b>4,6%</b>).<br/>
+                <b>Principal componente del aumento entre el segundo y el tercer periodo:</b> <b>Aforo cámaras 100%</b> (+162).<br/>
+                <b>Alertas con causa asociada en el último periodo:</b> 72 (<b>1,18%</b> del total).
               </div>
             </div>
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
-              <div class="section-title tight">Resumen numérico</div>
+              <div class="section-title tight">Base numérica consolidada</div>
               <table>
                 <thead>
                   <tr>
@@ -423,12 +474,13 @@
 
           <div>
             <div class="card" style="box-shadow:none;">
-              <div class="section-title tight">Lectura rápida</div>
+              <div class="section-title tight">Lectura gerencial</div>
               <div class="note" style="margin-top:8px;">
                 <ul style="margin:0 0 0 18px; padding:0;">
-                  <li>El salto fuerte ocurre entre <b>14 abr–30 jun</b> y <b>01 jul–30 sep</b>.</li>
-                  <li>En el último periodo (<b>01 oct–31 dic</b>) el total sigue subiendo, pero a un ritmo menor.</li>
-                  <li>El componente que más empuja el crecimiento es <b>Aforo cámaras 100%</b>.</li>
+                  <li>El salto más fuerte del indicador total ocurre entre el <b>primer</b> y el <b>segundo periodo</b>.</li>
+                  <li>En el último periodo el volumen total continúa creciendo, aunque con una <b>desaceleración</b> frente al incremento previo.</li>
+                  <li>El componente que más presiona el crecimiento consolidado es <b>Aforo cámaras 100%</b>.</li>
+                  <li>La tendencia general sugiere una estabilización en niveles altos, más que una reducción efectiva del problema.</li>
                 </ul>
               </div>
             </div>
@@ -437,9 +489,9 @@
               <div class="card" style="box-shadow:none;">
                 <div class="row">
                   <div>
-                    <div class="small muted"><b>14 de abril al 30 de junio</b></div>
+                    <div class="small muted"><b>Periodo 1 | 14 de abril al 30 de junio</b></div>
                     <div class="kpi">3.856</div>
-                    <div class="kpi-label">Total de alertas</div>
+                    <div class="kpi-label">Total de alertas registradas</div>
                   </div>
                   <div class="small muted" style="text-align:right;">
                     Alertas gestionadas: <b>100%</b><br/>
@@ -454,9 +506,9 @@
               <div class="card" style="box-shadow:none;">
                 <div class="row">
                   <div>
-                    <div class="small muted"><b>01 julio al 30 de septiembre</b></div>
+                    <div class="small muted"><b>Periodo 2 | 01 julio al 30 de septiembre</b></div>
                     <div class="kpi">5.819</div>
-                    <div class="kpi-label">Total de alertas</div>
+                    <div class="kpi-label">Total de alertas registradas</div>
                   </div>
                   <div class="small muted" style="text-align:right;">
                     Alertas gestionadas: <b>100%</b><br/>
@@ -472,9 +524,9 @@
               <div class="card" style="box-shadow:none;">
                 <div class="row">
                   <div>
-                    <div class="small muted"><b>01 octubre al 31 de diciembre</b></div>
+                    <div class="small muted"><b>Periodo 3 | 01 octubre al 31 de diciembre</b></div>
                     <div class="kpi">6.089</div>
-                    <div class="kpi-label">Total de alertas</div>
+                    <div class="kpi-label">Total de alertas registradas</div>
                   </div>
                   <div class="small muted" style="text-align:right;">
                     Alertas gestionadas: <b>100%</b><br/>
@@ -488,9 +540,9 @@
               </div>
 
               <div class="card total-box" style="box-shadow:none;">
-                <div class="small muted"><b>Total consolidado</b></div>
+                <div class="small muted"><b>Total consolidado del análisis</b></div>
                 <div class="kpi kpi-total">15.764</div>
-                <div class="kpi-label">Suma total de alertas de los 3 informes</div>
+                <div class="kpi-label">Acumulado de alertas de los 3 periodos</div>
               </div>
             </div>
           </div>
@@ -503,14 +555,15 @@
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">2) Comparación por jornada</div>
+            <div class="section-title tight">2. Comportamiento de alertas por jornada</div>
+            <p class="section-desc">Análisis de la variación del total y de cada franja operativa a lo largo de los tres periodos.</p>
           </div>
         </div>
 
         <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr; align-items:start;">
           <div>
             <div class="card" style="box-shadow:none;">
-              <div class="section-title tight">Tendencia por jornada + Total</div>
+              <div class="section-title tight">Tendencia por jornada y total consolidado</div>
 
               <div class="legend" style="margin-top:6px;">
                 <span><span class="dot" style="background:#111827;"></span>Total</span>
@@ -610,25 +663,31 @@
 
           <div>
             <div class="card" style="box-shadow:none;">
-              <div class="section-title tight">Lectura rápida</div>
+              <div class="section-title tight">Lectura ejecutiva por jornada</div>
               <div class="note" style="margin-top:8px;">
-                <b>Total:</b> sube fuerte del <b>14 de abril al 30 de junio</b> al <b>01 de julio al 30 de septiembre</b> y luego se mantiene alto del
-                <b>01 de julio al 30 de septiembre</b> al <b>01 de octubre al 31 de diciembre</b>.<br/><br/>
-                <b>Por jornadas:</b>
+                <b>Total:</b> registra un crecimiento fuerte del <b>primer</b> al <b>segundo periodo</b> y luego se mantiene en niveles altos durante el <b>tercer periodo</b>.<br/><br/>
+                <b>Comportamiento por franja:</b>
                 <ul style="margin:8px 0 0 18px; padding:0;">
-                  <li><b>Tarde</b> mantiene una tendencia ascendente (es donde más crece).</li>
-                  <li><b>Mañana</b> sube en el segundo periodo y baja en el tercero.</li>
-                  <li><b>Noche</b> se mantiene estable con leve aumento.</li>
-                  <li><b>Madrugada</b> sigue siendo baja pero con aumento progresivo.</li>
+                  <li><b>Tarde</b> mantiene una tendencia ascendente y es la jornada de mayor expansión.</li>
+                  <li><b>Mañana</b> aumenta en el segundo periodo y desciende en el tercero.</li>
+                  <li><b>Noche</b> conserva estabilidad con leve crecimiento.</li>
+                  <li><b>Madrugada</b> sigue siendo marginal, aunque con aumento progresivo.</li>
                 </ul>
               </div>
             </div>
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
-              <div class="section-title tight">Conclusiones</div>
+              <div class="section-title tight">Mensajes clave para decisión</div>
               <div class="note" style="margin-top:8px;">
-                <b>Mayor aumento:</b> <span style="color:var(--title); font-weight:800;">Tarde</span> (+333)<br/>
-                <b>Mayor descenso:</b> <span style="color:var(--title); font-weight:800;">Mañana</span> (-103)
+                <b>Mayor incremento:</b> <span style="color:var(--title); font-weight:800;">Tarde</span> (+333)<br/>
+                <b>Mayor reducción:</b> <span style="color:var(--title); font-weight:800;">Mañana</span> (-103)
+              </div>
+            </div>
+
+            <div class="executive-box" style="margin-top:12px;">
+              <div class="small" style="font-weight:800; color:var(--title);">Interpretación gerencial</div>
+              <div class="note" style="margin-top:6px;">
+                La franja de <b>tarde</b> debe considerarse prioritaria en el rediseño operativo, pues concentra el mayor crecimiento absoluto y sostenido del volumen de alertas.
               </div>
             </div>
           </div>
@@ -641,18 +700,18 @@
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">3) Causas | Tendencia de causas por informe</div>
-            <div class="panel-sub">Cada línea corresponde a un informe con <b>sus causas</b> y <b>sus valores</b> (tal como tus láminas).</div>
+            <div class="section-title tight">3. Evolución de causas asociadas</div>
+            <div class="panel-sub">Cada gráfica conserva la estructura original y permite comparar la concentración de causas por periodo.</div>
           </div>
         </div>
 
         <div class="grid-2" style="margin-top:12px; grid-template-columns: 1.35fr 1fr;">
           <div class="card" style="box-shadow:none;">
-            <div class="section-title tight">Gráficas por informe</div>
+            <div class="section-title tight">Distribución de causas por periodo</div>
 
             <div class="card" style="margin-top:10px; box-shadow:none;">
               <div class="row wrap" style="align-items:flex-start;">
-                <div class="small muted"><b>Informe 1 (14 de abril al 30 de junio)</b></div>
+                <div class="small muted"><b>Periodo 1 | 14 de abril al 30 de junio</b></div>
                 <div class="badge"><b>TOTAL 117</b></div>
               </div>
 
@@ -740,7 +799,7 @@
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
               <div class="row wrap" style="align-items:flex-start;">
-                <div class="small muted"><b>Informe 2 (01 julio al 30 de septiembre)</b></div>
+                <div class="small muted"><b>Periodo 2 | 01 julio al 30 de septiembre</b></div>
                 <div class="badge"><b>TOTAL 189</b></div>
               </div>
 
@@ -827,7 +886,7 @@
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
               <div class="row wrap" style="align-items:flex-start;">
-                <div class="small muted"><b>Informe 3 (01 octubre al 31 de diciembre)</b></div>
+                <div class="small muted"><b>Periodo 3 | 01 octubre al 31 de diciembre</b></div>
                 <div class="badge"><b>TOTAL 72</b></div>
               </div>
 
@@ -892,34 +951,32 @@
 
           <div>
             <div class="card" style="box-shadow:none;">
-              <div class="section-title tight">Análisis</div>
+              <div class="section-title tight">Interpretación de causas</div>
 
               <div class="note" style="margin-top:10px;">
-                <b>Informe 1 (Total 117):</b> el mayor peso está en <b>Acompañantes (46)</b> y <b>Facturación (38)</b>. El resto de causas son de baja frecuencia (≤3).<br/><br/>
+                <b>Periodo 1 (Total 117):</b> la mayor participación está en <b>Alta presencia de acompañantes (46)</b> y <b>Demoras en la facturación (38)</b>. Las demás causas tienen baja incidencia relativa.<br/><br/>
 
-                <b>Informe 2 (Total 189):</b> ocurre el pico. La causa dominante es <b>Retraso en servicios (101)</b> y luego <b>Acompañantes (35)</b>. Aparecen causas adicionales: <b>Caída de sistemas (4)</b>, <b>Circuito de obesidad (4)</b> y <b>Cita extra (1)</b>.<br/><br/>
+                <b>Periodo 2 (Total 189):</b> se presenta el punto más alto del análisis. La causa dominante es <b>Retraso en la prestación de servicios (101)</b>, seguida de <b>Alta presencia de acompañantes (35)</b>. También aparecen nuevas causas secundarias.<br/><br/>
 
-                <b>Informe 3 (Total 72):</b> el total baja y se concentra en pocas causas: <b>Retraso (41)</b> y <b>Acompañantes (23)</b> explican la mayor parte. <b>Facturación</b> cae a <b>3</b> (mejora clara).
+                <b>Periodo 3 (Total 72):</b> el volumen disminuye y se concentra en menos causas. <b>Retraso en la prestación de servicios (41)</b> y <b>Alta presencia de acompañantes (23)</b> explican la mayor parte del total. <b>Demoras en la facturación</b> cae a <b>3</b>, lo que sugiere una mejora operativa puntual.
               </div>
             </div>
 
             <div class="card" style="margin-top:12px; box-shadow:none;">
-              <div class="section-title tight">Conclusión</div>
+              <div class="section-title tight">Conclusión gerencial</div>
               <div class="note" style="margin-top:10px;">
-                La prioridad de control porque se repite y tiene mayor peso en los tres informes es
+                Las causas de mayor recurrencia e impacto a lo largo del análisis son:
                 <b>Retraso en la prestación de servicios</b> y <b>Alta presencia de acompañantes</b>.
-                Cuando estas dos causas disminuyen, el total de alertas también tiende a bajar de forma marcada.<br/><br/>
+                Cuando estas causas disminuyen, el volumen total de alertas también tiende a reducirse de manera significativa.<br/><br/>
 
-                <b>Causas que más se repiten:</b>
+                <b>Causas más recurrentes:</b>
                 <ul style="margin:6px 0 0 18px;">
-                  <li><b>Retraso en la prestación de servicios</b> (principal causa en los últimos informes).</li>
-                  <li><b>Alta presencia de acompañantes</b> (se mantiene en todos los periodos).</li>
-                  <li><b>Demoras en la facturación</b>, aunque su peso disminuye progresivamente.</li>
+                  <li><b>Retraso en la prestación de servicios</b> (principal causa en los últimos periodos).</li>
+                  <li><b>Alta presencia de acompañantes</b> (presente de forma sostenida en todos los cortes).</li>
+                  <li><b>Demoras en la facturación</b>, con una reducción progresiva de su peso relativo.</li>
                 </ul>
 
-                En el último periodo el problema se concentra principalmente en las dos primeras causas,
-                lo que indica que el foco de mejora debe estar en la <b>capacidad operativa del servicio</b>
-                y en el <b>control del flujo de acompañantes</b>.
+                En el último periodo el problema queda más concentrado en las dos primeras causas, lo que facilita la focalización de acciones correctivas.
               </div>
             </div>
           </div>
@@ -932,44 +989,44 @@
       <div class="card">
         <div class="row wrap">
           <div>
-            <div class="section-title tight">4) Aforo sala 100%</div>
+            <div class="section-title tight">4. Foco crítico: Aforo sala 100%</div>
             <div class="panel-sub">
-              Tendencia general: sube fuerte del I1 al I2 (388) y luego se mantiene al alza del I2 al I3 (21).<br/>
-              Concentración del riesgo en <b>Urgencias Piso 3</b>: I2 aporta 54,2% del total y en I3 sube a 65,1%.
+              La tendencia muestra un incremento estructural entre el primer y el segundo periodo, con permanencia en niveles altos durante el tercero.<br/>
+              El principal punto crítico es <b>Urgencias Piso 3</b>, cuya participación crece del <b>54,2%</b> al <b>65,1%</b> del total entre el segundo y el tercer periodo.
             </div>
           </div>
         </div>
 
         <div class="grid-4" style="margin-top:12px;">
           <div class="card" style="box-shadow:none;">
-            <div class="small muted"><b>Informe 1 (14/04/25–30/06/25)</b></div>
+            <div class="small muted"><b>Periodo 1 (14/04/25–30/06/25)</b></div>
             <div class="kpi">44</div>
-            <div class="kpi-label">Total alertas 100% sala</div>
+            <div class="kpi-label">Total alertas de sala al 100%</div>
           </div>
 
           <div class="card" style="box-shadow:none;">
-            <div class="small muted"><b>Informe 2 (01/07/25–30/09/25)</b></div>
+            <div class="small muted"><b>Periodo 2 (01/07/25–30/09/25)</b></div>
             <div class="kpi">432</div>
-            <div class="kpi-label">Total (Alto 94%)</div>
+            <div class="kpi-label">Predominio de criticidad alta (94,2%)</div>
           </div>
 
           <div class="card" style="box-shadow:none;">
-            <div class="small muted"><b>Informe 3 (01/10/25–31/12/25)</b></div>
+            <div class="small muted"><b>Periodo 3 (01/10/25–31/12/25)</b></div>
             <div class="kpi">453</div>
-            <div class="kpi-label">Total (Alto 82,6%)</div>
+            <div class="kpi-label">Persistencia alta del riesgo (82,6%)</div>
           </div>
 
           <div class="card total-box" style="box-shadow:none;">
-            <div class="small muted"><b>Total consolidado I1 + I2 + I3</b></div>
+            <div class="small muted"><b>Total consolidado</b></div>
             <div class="kpi kpi-total">929</div>
-            <div class="kpi-label">Total alertas aforo sala 100%</div>
+            <div class="kpi-label">Alertas de aforo sala 100% en los 3 periodos</div>
           </div>
         </div>
 
         <div class="grid-2" style="margin-top:12px;">
           <div class="card" style="box-shadow:none;">
-            <div class="section-title tight">Tendencia total de alertas (I1–I3)</div>
-            <div class="panel-sub">Visualiza el salto estructural del I1→I2 y la permanencia alta en I3.</div>
+            <div class="section-title tight">Tendencia total de alertas del foco crítico</div>
+            <div class="panel-sub">Se conserva la gráfica original para mostrar el cambio estructural y la permanencia del problema.</div>
 
             <svg width="720" height="235" viewBox="0 0 720 235" style="margin-top:10px;">
               <rect x="0" y="0" width="720" height="235" rx="14" fill="#ffffff" stroke="#e5e7eb"></rect>
@@ -982,9 +1039,9 @@
               <circle cx="320" cy="29.2" r="5" fill="#003057"></circle>
               <circle cx="545" cy="22.0" r="5" fill="#003057"></circle>
 
-              <text x="95" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 1</text>
-              <text x="320" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 2</text>
-              <text x="545" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Informe 3</text>
+              <text x="95" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Periodo 1</text>
+              <text x="320" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Periodo 2</text>
+              <text x="545" y="210" font-size="12" fill="#6b7280" text-anchor="middle">Periodo 3</text>
 
               <text x="95" y="18" font-size="12" fill="#6b7280" text-anchor="middle">44</text>
               <text x="320" y="18" font-size="12" fill="#6b7280" text-anchor="middle">432</text>
@@ -993,10 +1050,10 @@
           </div>
 
           <div class="card" style="box-shadow:none;">
-            <div class="section-title tight">Mix de criticidad</div>
-            <div class="panel-sub">Comparación I2 vs I3 .</div>
+            <div class="section-title tight">Comparativo de criticidad</div>
+            <div class="panel-sub">Distribución del nivel de criticidad entre el segundo y el tercer periodo.</div>
 
-            <div class="small" style="font-weight:800; color:var(--title); margin-top:10px;">Informe 2</div>
+            <div class="small" style="font-weight:800; color:var(--title); margin-top:10px;">Periodo 2</div>
             <div class="bar-wrap" style="width:240px; margin-top:6px;">
               <div class="bar-orange" style="width:226px;"></div>
               <div class="bar-teal" style="width:11px; opacity:.65;"></div>
@@ -1008,7 +1065,7 @@
               Bajo: <b>5</b> (1,2%)
             </div>
 
-            <div class="small" style="font-weight:800; color:var(--title); margin-top:14px;">Informe 3</div>
+            <div class="small" style="font-weight:800; color:var(--title); margin-top:14px;">Periodo 3</div>
             <div class="bar-wrap" style="width:240px; margin-top:6px;">
               <div class="bar-orange" style="width:198px;"></div>
               <div class="bar-teal" style="width:37px; opacity:.65;"></div>
@@ -1029,11 +1086,11 @@
         </div>
 
         <div class="card" style="margin-top:12px; box-shadow:none;">
-          <div class="section-title tight">Top salas (donde se concentra el problema)</div>
+          <div class="section-title tight">Salas con mayor concentración del riesgo</div>
 
           <div class="grid-3" style="margin-top:10px;">
             <div class="card" style="box-shadow:none;">
-              <div class="small" style="font-weight:800; color:var(--title);">Informe 1 (17/04/25–30/06/25)</div>
+              <div class="small" style="font-weight:800; color:var(--title);">Periodo 1 (17/04/25–30/06/25)</div>
               <div class="note" style="margin-top:8px;">
                 Sala bienvenida piso 2: <b>17</b><br/>
                 Sala bienvenida piso 6: <b>13</b><br/>
@@ -1041,11 +1098,11 @@
                 Urgencias pediátricas: <b>4</b><br/>
                 Bienvenida piso 4 / 5: <b>2</b>
               </div>
-              <div class="panel-sub" style="margin-top:8px;">Total I1: <b>44</b></div>
+              <div class="panel-sub" style="margin-top:8px;">Total del periodo: <b>44</b></div>
             </div>
 
             <div class="card" style="box-shadow:none;">
-              <div class="small" style="font-weight:800; color:var(--title);">Informe 2 (01/07/25–30/09/25)</div>
+              <div class="small" style="font-weight:800; color:var(--title);">Periodo 2 (01/07/25–30/09/25)</div>
               <div class="note" style="margin-top:8px;">
                 Urgencias piso 3: <b>234</b><span class="pill alto">ALTO</span><br/>
                 Bienvenida 3 piso amb: <b>51</b><span class="pill alto">ALTO</span><br/>
@@ -1053,11 +1110,11 @@
                 Bienvenida 7 piso amb: <b>40</b><span class="pill alto">ALTO</span><br/>
                 Urgencias piso 1: <b>39</b><span class="pill alto">ALTO</span>
               </div>
-              <div class="panel-sub" style="margin-top:8px;">Total I2: <b>432</b></div>
+              <div class="panel-sub" style="margin-top:8px;">Total del periodo: <b>432</b></div>
             </div>
 
             <div class="card" style="box-shadow:none;">
-              <div class="small" style="font-weight:800; color:var(--title);">Informe 3 (01/10/25–31/12/25)</div>
+              <div class="small" style="font-weight:800; color:var(--title);">Periodo 3 (01/10/25–31/12/25)</div>
               <div class="note" style="margin-top:8px;">
                 Urgencias piso 3: <b>295</b><span class="pill alto">ALTO</span><br/>
                 Bienvenida 3 piso amb: <b>47</b><span class="pill alto">ALTO</span><br/>
@@ -1065,22 +1122,22 @@
                 Bienvenida 7 piso amb: <b>21</b><span class="pill med">MEDIO</span><br/>
                 Urgencias piso 1: <b>21</b><span class="pill med">MEDIO</span>
               </div>
-              <div class="panel-sub" style="margin-top:8px;">Total I3: <b>453</b></div>
+              <div class="panel-sub" style="margin-top:8px;">Total del periodo: <b>453</b></div>
             </div>
           </div>
         </div>
 
         <div class="card" style="margin-top:12px; box-shadow:none;">
-          <div class="section-title tight">Transición de criticidad (I1 → I2 → I3)</div>
+          <div class="section-title tight">Transición de criticidad entre periodos</div>
 
           <table>
             <thead>
               <tr>
                 <th>Área / Piso</th>
-                <th class="center">Informe 1</th>
-                <th class="center">Informe 2</th>
-                <th class="center">Informe 3</th>
-                <th class="center">Lectura</th>
+                <th class="center">Periodo 1</th>
+                <th class="center">Periodo 2</th>
+                <th class="center">Periodo 3</th>
+                <th class="center">Lectura ejecutiva</th>
               </tr>
             </thead>
             <tbody>
@@ -1089,35 +1146,35 @@
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-alto">Alto</td>
-                <td class="center">Se mantiene crítico (estructural).</td>
+                <td class="center">Persistencia crítica; problema estructural.</td>
               </tr>
               <tr>
                 <td>Sala de bienvenida 8 piso</td>
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-med">Medio</td>
                 <td class="center cell-alto">Alto</td>
-                <td class="center">Rebote: mejora temporal y vuelve a empeorar.</td>
+                <td class="center">Mejora transitoria y posterior rebote.</td>
               </tr>
               <tr>
                 <td>Sala de bienvenida 7 piso</td>
                 <td class="center cell-med">Medio</td>
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-med">Medio</td>
-                <td class="center">Sube y vuelve a estabilizar en Medio.</td>
+                <td class="center">Se eleva y luego retorna a nivel intermedio.</td>
               </tr>
               <tr>
                 <td>Sala 3 Piso Ambulatorio</td>
                 <td class="center cell-med">Medio</td>
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-alto">Alto</td>
-                <td class="center">Se consolida en Alto (prioridad).</td>
+                <td class="center">Se consolida como prioridad crítica.</td>
               </tr>
               <tr>
                 <td>Urgencias piso 1</td>
                 <td class="center cell-med">Medio</td>
                 <td class="center cell-alto">Alto</td>
                 <td class="center cell-med">Medio</td>
-                <td class="center">Mejora: vuelve de Alto a Medio.</td>
+                <td class="center">Presenta mejora respecto al segundo periodo.</td>
               </tr>
             </tbody>
           </table>
@@ -1127,7 +1184,23 @@
     </section>
 
     <section class="section">
-      <div class="card"></div>
+      <div class="card">
+        <div class="section-title tight">5. Recomendaciones para seguimiento gerencial</div>
+        <div class="grid-3" style="margin-top:12px;">
+          <div class="executive-box">
+            <b>Priorizar puntos críticos</b><br/>
+            Enfocar acciones correctivas en <b>Urgencias Piso 3</b> y en las salas con recurrencia alta del indicador de aforo.
+          </div>
+          <div class="executive-box">
+            <b>Intervenir causas dominantes</b><br/>
+            Fortalecer medidas sobre <b>retraso en la prestación de servicios</b> y <b>alta presencia de acompañantes</b>.
+          </div>
+          <div class="executive-box">
+            <b>Monitorear por franja</b><br/>
+            Establecer seguimiento específico en la jornada de <b>tarde</b>, por ser la de mayor crecimiento sostenido.
+          </div>
+        </div>
+      </div>
     </section>
 
   </div>
